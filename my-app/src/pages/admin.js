@@ -10,6 +10,7 @@ import {
   import { Button, ButtonGroup } from '@chakra-ui/react'
   import { FaHome, FaClock } from "react-icons/fa";
   import { BsPeopleFill} from "react-icons/bs";
+  import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
   
 
@@ -80,7 +81,21 @@ export default function Home() {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                The Smith House Project is scheduled to occur on October 10th, 2023. It will occur at 1773 Eagle Drive in Aurora, IL. There are currently 30 registered volunteers out of the 40 spots available. 
+              <Card align='center'>
+  <CardHeader>
+    <Heading size='md'> More Information</Heading>
+  </CardHeader>
+  <CardBody>
+    <Text>The Smith House Project is scheduled to occur on October 10th, 2023. It will occur at 1773 Eagle Drive in Aurora, IL. There are currently 30 registered volunteers out of the 40 spots available. 
+
+</Text>
+  </CardBody>
+  <CardFooter>
+  <Button style={{ backgroundColor: 'black', color: 'white' }}>Alert Volunteers</Button>
+
+  </CardFooter>
+</Card>
+
               </AccordionPanel>
             </>
           )}
@@ -114,7 +129,7 @@ export default function Home() {
                     <BsPeopleFill /> {/* House icon */}
                     </Box>
                     <Box flex="1" >
-                      30 of 40 Volunteers
+                      25 of 40 Volunteers
                     </Box>
                   </Flex>
 
@@ -128,11 +143,31 @@ export default function Home() {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        
+              <Card align='center'>
+  <CardHeader>
+    <Heading size='md'> More Information</Heading>
+  </CardHeader>
+  <CardBody>
+    <Text>The Patel House Project is scheduled to occur on October 12th, 2023. It will occur at 788 Creek View Drive in Aurora, IL. There are currently 25 registered volunteers out of the 40 spots available. </Text>
+  </CardBody>
+  <CardFooter>
+  <Button style={{ backgroundColor: 'black', color: 'white' }}>Alert Volunteers</Button>
+  </CardFooter>
+</Card>
+
+
+
+             
               </AccordionPanel>
             </>
           )}
         </AccordionItem>
+
+
+        
+
+
 
 
 
