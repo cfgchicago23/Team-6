@@ -13,6 +13,8 @@ import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
 
+import NavBar from "../navigation/navbar";
+
 import {
     Card,
     Radio,
@@ -452,6 +454,7 @@ function HouseCards() {
 export default function Profile() {
     return (
         <ChakraProvider>
+            <NavBar/>
             <SimpleGrid columns={2}>
                 <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
                     <UserInfo></UserInfo>
