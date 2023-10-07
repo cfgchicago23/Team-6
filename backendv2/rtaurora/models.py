@@ -85,3 +85,11 @@ class Volunteer(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+
+class AdminUser(models.Model):
+    adminUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    adminPassword = models.CharField(max_length=MAX_LENGTH)
+    
+    def __str__(self) -> str:
+        return self.name
