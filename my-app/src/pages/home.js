@@ -1,8 +1,6 @@
 import { Heading, Flex, Box, Spacer, Text } from '@chakra-ui/react'
 
 export default function Home() {
-
-
       return (
             <>
         <Heading size='2xl' color='#035422'>
