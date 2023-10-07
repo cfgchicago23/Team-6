@@ -26,6 +26,7 @@ import image2 from "../pics/truck_group.jpg";
 import image3 from "../pics/happy_building.jpg";
 import NavBar from "../navigation/navbar";
 import { Link } from 'react-router-dom';
+import nov_11_event from "../pics/nov_11_event.jpeg"
 
 
 export default function Home() {
@@ -180,6 +181,36 @@ export default function Home() {
           </TextTransition>
         </Heading>
       </VStack>
+
+      <Box bgGradient='linear(to-r, gray.100, green.300)'>
+      <Stack spacing={300} direction='row' >
+          <Image src={nov_11_event}
+                alt="Image Description"
+                h="100%"
+                w="50%"
+                style={{ opacity: 0.7 }} 
+        ></Image> 
+          <Box mt='35'>
+            <Heading size="2xl" color="#f7f4d5" ml="-250px" mt="10">
+              Upcoming Event: Nov 11th
+            </Heading>
+            <Heading size="lg" color="gray.600" ml="-250px" mt="3">
+            Veterans' Fall Clean-Up and Repairs
+            </Heading>
+            <Text ml="-270px" mr='20px' mt='7'>
+            Join Rebuilding Together Aurora and Crossroads Church as we team up to serve 
+            those who have served and military families in the Fox Valley in honor of the 
+            sacrifices they have made to our country. Last year a record-breaking number 
+            of volunteers served more Veterans, military families and senior citizens than 
+            ever before and we are hoping to surpass those numbers in 2023. 
+            </Text>
+            <Button  colorScheme="whiteAlpha" size="lg" mr='290px' mt='10'>
+              <Link to={'/form'}>Sign Up</Link>
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+        
     </>
   );
 }
