@@ -17,6 +17,7 @@ STATE_CHOICES = (
     ("na", "Choose State"),
     ("OH", "Ohio"),
     ("MI", "Michigan"),
+    ("IL", "Illinois"),
 )
 
 PREFERENCE = (
@@ -74,11 +75,13 @@ class Volunteer(models.Model):
     state = models.CharField(max_length=MAX_LENGTH, choices=STATE_CHOICES, default="na")
     city = models.TextField(blank=True)
     zipCode = models.IntegerField(default=0000)
-    dob = models.DateField(default='2023-10-07')
-    isAdult =  models.BooleanField(default=True)
+    dob = models.DateField(default="2023-10-07")
+    isAdult = models.BooleanField(default=True)
     shirt = models.CharField(max_length=20, choices=SHIRT, default="small")
-    availability = models.CharField(max_length=20, choices=AVAILABILITY, default="asneeded")
-    role = models.CharField(max_length = 20, choices=EXPERTISE, default="general")
+    availability = models.CharField(
+        max_length=20, choices=AVAILABILITY, default="asneeded"
+    )
+    role = models.CharField(max_length=20, choices=EXPERTISE, default="general")
     other = models.TextField(blank=True)
     reference = models.TextField(blank=True)
     hours = models.IntegerField(default=0)
@@ -89,16 +92,22 @@ class Volunteer(models.Model):
 
 
 class House(models.Model):
-    house_id = models.CharField(max_length=6, default=random.randint(0,20))
-    owner_name = models.CharField(max_length=MAX_LENGTH)
-    owner_email = models.EmailField(max_length=MAX_LENGTH, blank=True)
-    owner_phone = models.CharField(max_length=MAX_LENGTH)
-    address = models.CharField(max_length=MAX_LENGTH)
-    language = models.CharField(max_length=MAX_LENGTH)
-    needed_repairs = models.CharField(max_length=MAX_LENGTH)
+    familyName = models.CharField(max_length=MAX_LENGTH)
+    familyEmail = models.EmailField(max_length=MAX_LENGTH, blank=True, null=True)
+    street = models.TextField(blank=True, null=True)
+    state = models.CharField(
+        max_length=2, choices=STATE_CHOICES, default="na", null=True
+    )
+    city = models.TextField(blank=True, null=True)
+    zipCode = models.IntegerField(blank=True, null=True)
+    language = models.CharField(max_length=MAX_LENGTH, blank=True, null=True)
+    recievedOn = models.DateField(blank=True, null=True)
+    application = models.FileField(
+        upload_to="HouseApplications", blank=True, null=True
+    )
 
 
-class Organization (models.Model):
+class Organization(models.Model):
     name = models.CharField(max_length=MAX_LENGTH)
     street = models.TextField()
     state = models.CharField(max_length=2, choices=STATE_CHOICES, default="na")
