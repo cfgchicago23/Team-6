@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Center, ChakraProvider } from '@chakra-ui/react'
 import {
     FormControl,
     FormLabel,
@@ -11,10 +11,14 @@ import {
     Radio,
     HStack,
     Button,
+    Box,
+    SimpleGrid,
+    Image,
   } from '@chakra-ui/react'
   import { useState } from 'react';
   import axios from 'axios';
-
+  import './form.css';
+  import image1 from '../pics/20210806_084254.jpg'
 
   export default function Form() {
       // Define state variables to store form input values
@@ -56,8 +60,25 @@ import {
     
     return (
       <ChakraProvider>
-          <form onSubmit={handleSubmit}>
-            <FormControl isRequired>
+          <Box
+            rounded={'lg'}
+            padding={10}
+            bg='green.50'
+        >
+        <SimpleGrid columns={2} spacingY={5} padding={5}>
+            {/* <Box>
+                <Image>
+                    image1
+                </Image>
+            </Box> */}
+            <Image image1/>
+          <form onSubmit={handleSubmit} >
+            <FormControl isRequired 
+                        borderColor='gray'
+                        rounded={'lg'}
+                        width={0.7}
+                        align='n center'
+                        >
                 <FormLabel>Name</FormLabel>
                 <Input 
                     id="name"
@@ -68,7 +89,7 @@ import {
                     onChange={handleInputChange}
                     />
 
-                <FormLabel>Email address</FormLabel>
+                <FormLabel marginTop={3}>Email address</FormLabel>
                 <Input 
                     id="email"
                     type="email"
@@ -79,7 +100,7 @@ import {
                     />                
                 <FormHelperText>We'll never share your email.</FormHelperText>
 
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel marginTop={3}>Phone Number</FormLabel>
                 <Input 
                     id="number"
                     type="number"
@@ -88,7 +109,7 @@ import {
                     value={formData.number}
                     onChange={handleInputChange}/>
 
-                <FormLabel as='legend'>
+                <FormLabel marginTop={3} as='legend'>
                     Preferred Method of Contact
                 </FormLabel>
                 <RadioGroup 
@@ -157,7 +178,8 @@ import {
                 type="size"
                 name="size"
                 value={formData.size}
-                onChange={handleInputChange}>
+                onChange={handleInputChange}
+                variant='filled'>
                     <option>X-Small</option>
                     <option>Small</option>
                     <option>Medium</option>
@@ -191,6 +213,7 @@ import {
                 name="role"
                 placeholder="Select a role"
                 value={formData.role}
+                variant='filled'
                 onChange={handleInputChange}>
                     <option>General Volunteer</option>
                     <option>Carpentry</option>
@@ -238,6 +261,8 @@ import {
                 </Button>
             </FormControl>
         </form>
+        </SimpleGrid>
+        </Box>
       </ChakraProvider>
   
     )
