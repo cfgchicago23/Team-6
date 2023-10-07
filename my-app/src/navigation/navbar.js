@@ -42,13 +42,13 @@ export default function NavBar() {
 
         </Breadcrumb>
 
-        <Button ml='480px'colorScheme='green' variant={'outline'}>
-          <Link to={'/admin'}>Admin Sign In</Link>
+        <Button ml='600px'colorScheme='green' variant={'outline'}>
+          <Link to={'/login'}>Login</Link>
         </Button>
 
-        <Button ml='3px'colorScheme='green'>
-          <Link to={'/feedback'}>Volunteer Sign In</Link>
-        </Button>
+        {/* <Button ml='3px'colorScheme='green'>
+          <Link to={'/login'}>Volunteer Sign In</Link>
+        </Button> */}
       </div>
   );
 }
