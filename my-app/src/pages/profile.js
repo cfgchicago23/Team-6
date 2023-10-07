@@ -36,18 +36,6 @@ function VolunteerHeader(prop) {
     )
 }
 
-function VolunteerPageBox() {
-    return (
-        <Box
-            height={300}
-            border={'3px solid'}
-            borderColor='green'
-            rounded={'lg'}
-            padding={10}>
-        </Box>)
-
-}
-
 function UserInfo() {
     
     return (
