@@ -7,6 +7,7 @@ STATE_CHOICES = (
     ("na", "Choose State"),
     ("OH", "Ohio"),
     ("MI", "Michigan"),
+    ("IL", "Illinois"),
 )
 
 PREFERENCE = (
@@ -77,17 +78,6 @@ class Volunteer(models.Model):
     def __str__(self) -> str:
         return self.name
 
-
-# class House(models.Model):
-#     house_id = models.CharField(max_length=6)
-#     owner_name = models.CharField(max_length=MAX_LENGTH)
-#     owner_email = models.EmailField(max_length=MAX_LENGTH, blank=True)
-#     owner_phone = models.CharField(max_length=MAX_LENGTH)
-#     address = models.CharField(max_length=MAX_LENGTH)
-
-
-#     language = models.CharField(max_length=MAX_LENGTH)
-#     needed_repairs = models.CharField(max_length=MAX_LENGTH)
 class House(models.Model):
     familyName = models.CharField(max_length=MAX_LENGTH)
     familyEmail = models.EmailField(max_length=MAX_LENGTH, blank=True, null=True)
