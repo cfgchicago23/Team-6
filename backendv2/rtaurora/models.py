@@ -125,3 +125,10 @@ class Organization(models.Model):
 
     mainContact = models.CharField(max_length=MAX_LENGTH)
     mainEmail = models.EmailField(max_length=MAX_LENGTH, blank=True)
+
+
+class FeedbackForm(models.Model):
+    rating = models.CharField(max_length=2, choices=RATING_CHOICES, default="na")
+    text = models.TextField(default="")
+    house = models.CharField(max_length=MAX_LENGTH, default="")
+    volunteer_name = models.CharField(max_length=MAX_LENGTH, default="")
