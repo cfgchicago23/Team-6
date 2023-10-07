@@ -7,6 +7,7 @@ import {
   VStack,
   Select,
 } from "@chakra-ui/react";
+import axios from "axios";
 
 class HouseCreationForm extends React.Component {
   constructor(props) {
@@ -24,7 +25,25 @@ class HouseCreationForm extends React.Component {
   }
 
   handleSubmit = () => {
-    // TODO: Handle the submit aspect of stuff
+    axios
+      .post("http://127.0.0.1:8000/api/house/", {
+        // TODO: Fix the state value, the recieved on, and the application value
+        familyName: this.state.ownerName,
+        familyEmail: this.state.ownerEmail,
+        street: this.state.street,
+        city: this.state.city,
+        state: "IL",
+        zipCode: this.state.zipCode,
+        language: this.state.language,
+        recievedOn: this.recievedOn,
+        application: this.application,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   onChange = (event) => {
@@ -37,8 +56,6 @@ class HouseCreationForm extends React.Component {
     return (
       <Flex>
         {/* TODO: Include the nav bar */}
-        {/* Main form */}
-
         <FormControl textAlign="center">
           <VStack width="50%">
             <Input
@@ -79,13 +96,7 @@ class HouseCreationForm extends React.Component {
               <option>Illinois</option>
               <option>Ohio</option>
             </Select>
-            <Input
-              id="zipCode"
-              placeholder="12345"
-              name="zipCode"
-              value={this.state.zipCode}
-              onChange={this.onChange}
-            />
+
             <Input
               id="zipCode"
               placeholder="12345"
@@ -119,7 +130,7 @@ class HouseCreationForm extends React.Component {
             />
           </VStack>
 
-          <Button onClick={this.handleSubmit}></Button>
+          <Button onClick={this.handleSubmit}>Submit</Button>
         </FormControl>
         {/* TODO: Include the footer bar */}
       </Flex>
