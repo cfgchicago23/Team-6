@@ -5,8 +5,8 @@ from .models import Volunteer, Organization, House
 class VolunteerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volunteer
-        fields = ('id', 'name', 'email', 'phone', 'preference', 'street', 'state', 'city',
-                  'zipCode', 'dob', 'isAdult', 'shirt', 'availability', 'role', 'other', 'reference')
+        fields = ('id', 'name', 'email', 'phone', 'preference', 'street', 'state', 'city', 'zipCode',
+                  'dob', 'isAdult', 'shirt', 'availability', 'role', 'other', 'reference', 'hours')
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
