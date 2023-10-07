@@ -1,43 +1,17 @@
 from rest_framework import serializers
-from .models import Volunteer, Organization, House
+from .models import Volunteer, Organization, House, FeedbackForm
 
 
 class VolunteerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volunteer
-        fields = (
-            "id",
-            "name",
-            "email",
-            "phone",
-            "preference",
-            "street",
-            "state",
-            "city",
-            "zipCode",
-            "dob",
-            "isAdult",
-            "shirt",
-            "availability",
-            "role",
-            "other",
-            "reference",
-        )
+        fields = ('id', 'name', 'email', 'phone', 'preference', 'street', 'state', 'city', 'zipCode', 'dob', 'isAdult', 'shirt', 'availability', 'role', 'other', 'reference', 'hours')
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
-        fields = (
-            "id",
-            "name",
-            "street",
-            "city",
-            "state",
-            "zipCode",
-            "mainContact",
-            "mainEmail",
-        )
+        fields = ('id', 'name', 'street', 'city', 'state', 'zipCode', 'mainContact', 'mainEmail')
 
 
 class HouseSerializer(serializers.ModelSerializer):
@@ -55,3 +29,8 @@ class HouseSerializer(serializers.ModelSerializer):
             "recievedOn",
             "application",
         )
+
+class FeedbackFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FeedbackForm
+        fields = ('id', 'rating', 'text', 'house', 'volunteer_name')

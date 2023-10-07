@@ -20,8 +20,9 @@ from rest_framework import routers
 from rtaurora import views
 
 router = routers.DefaultRouter()
-router.register(r"volunteer", views.VolunteerView, "volunteer")
-router.register(r"organization", views.OrganizationView, "organization")
-router.register(r"house", views.HouseView, "house")
+router.register(r'volunteer', views.VolunteerView, 'volunteer')
+router.register(r'organization', views.OrganizationView, 'organization')
+router.register(r'house', views.HouseView, 'house')
+router.register(r'feedbackform', views.FeedbackFormView, 'feedbackform')
 
 urlpatterns = [path("admin/", admin.site.urls), path("api/", include(router.urls))]
