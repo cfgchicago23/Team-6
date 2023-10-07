@@ -53,7 +53,7 @@ import {
         e.preventDefault();
         // Access form input values from the formData state
         console.log(formData);
-        
+        window.location.reload();
 
         // You can now send this data to a server or perform any other action here
     };
@@ -61,6 +61,7 @@ import {
     // Function to update the formData state when input values change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        window.location.reload();
         setFormData({
         ...formData,
         [name]: value,

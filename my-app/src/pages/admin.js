@@ -12,8 +12,8 @@ import {
   import { Button, ButtonGroup } from '@chakra-ui/react'
   import { FaHome, FaClock } from "react-icons/fa";
   import { BsPeopleFill} from "react-icons/bs";
-import NavBar from '../navigation/navbar';
-import { Link } from 'react-router-dom';
+  import NavBar from '../navigation/navbar';
+  import { Link } from 'react-router-dom';
   import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
   

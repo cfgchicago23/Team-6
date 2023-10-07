@@ -37,12 +37,9 @@ export default function NavBar() {
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/form">Volunteer Intake Form</BreadcrumbLink>
+            <BreadcrumbLink href="/form">Sign Up to Volunteer</BreadcrumbLink>
           </BreadcrumbItem>
 
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
-          </BreadcrumbItem>
         </Breadcrumb>
 
         <Button ml='480px'colorScheme='green' variant={'outline'}>
