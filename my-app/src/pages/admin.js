@@ -5,6 +5,8 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
+    SimpleGrid,
+    Center
   } from '@chakra-ui/react'
   import { AddIcon, MinusIcon } from '@chakra-ui/icons'; // Import Chakra UI icons
   import { Button, ButtonGroup } from '@chakra-ui/react'
@@ -188,9 +190,15 @@ export default function Home() {
 
 
     <div style={{ height: '50px' }}></div>
-    <Button  colorScheme="green" size="lg">
+    
+      <Center>
+      <Button  colorScheme="green" size="lg" width='200px'>
             <Link to={'/HouseCreationForm'}>House Creation</Link>
-    </Button>
+      </Button>
+      </Center>
+      
+                    
+    
 
     
               
