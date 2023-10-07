@@ -14,9 +14,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from rtaurora import views
+
+router = routers.DefaultRouter()
+router.register(r"volunteer", views.VolunteerView, "volunteer")
+router.register(r"organization", views.OrganizationView, "organization")
+router.register(r"house", views.HouseView, "house")
+router.register(r"feedbackform", views.FeedbackFormView, "feedbackform")
+router.register(r"volunteerUser", views.VolunteerUserView, "volunteerUser")
+router.register(r"adminUser", views.AdminUserView, "adminUser")
+# router.register(r'gethouse', views.GetHouseView, 'gethouse')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
+    path("get-house/", views.GetHouseView.as_view()),
+    path("get-volunteer/", views.GetVolunteerView.as_view()),
 ]
