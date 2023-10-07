@@ -34,4 +34,5 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("get-house/", views.GetHouseView.as_view()),
     path("get-volunteer/", views.GetVolunteerView.as_view()),
+    path("get-volunteer/", views.PostFeedbackFormView.as_view())
 ]

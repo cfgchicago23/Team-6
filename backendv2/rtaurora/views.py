@@ -88,12 +88,15 @@ class PostFeedbackFormView(APIView):
         # Aquired Parameters
         rating = request.query_params.get("rating")
         text = request.query_params.get("text")
-        house = 'n/a'
+        house = ''
         volunteer_name = request.query_params.get("volunteer_name")
 
         # Possible Adjustments: 
         # house = request.query_params.get("house")
         # volunteer_name = 'n/a'
 
-
+        feedbackForm = FeedbackForm(rating=rating, text=text,
+                                house=house, volunteer_name=volunteer_name)
+        feedbackForm.save()
+        # return Response(FeedbackFormSerializer(feedbackForm).data, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_200_OK)
