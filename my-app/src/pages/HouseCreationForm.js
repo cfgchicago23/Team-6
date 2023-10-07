@@ -18,8 +18,8 @@ class HouseCreationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ownerName: "",
-      ownerEmail: "",
+      email: "",
+      password: "",
       street: "",
       city: "",
       zipCode: "",
