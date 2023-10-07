@@ -24,8 +24,13 @@ router.register(r'volunteer', views.VolunteerView, 'volunteer')
 router.register(r'organization', views.OrganizationView, 'organization')
 router.register(r'house', views.HouseView, 'house')
 router.register(r'feedbackform', views.FeedbackFormView, 'feedbackform')
+#router.register(r'gethouse', views.GetHouseView, 'gethouse')
 router.register(r'volunteerUser', views.VolunteerUserView, 'volunteerUser')
 router.register(r'adminUser', views.AdminUserView, 'adminUser')
 
 
-urlpatterns = [path("admin/", admin.site.urls), path("api/", include(router.urls))]
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('get-house/', views.GetHouseView.as_view())
+]

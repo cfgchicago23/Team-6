@@ -38,6 +38,11 @@ class FeedbackFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackForm
         fields = ('id', 'rating', 'text', 'house', 'volunteer_name')
+
+class GetHouseViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = House
+        fields = ['needed_repairs']
         
 class AdminUserSerializer(serializers.ModelSerializer):
     class Meta:
