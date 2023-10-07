@@ -93,8 +93,8 @@ import {
                 </FormLabel>
                 <RadioGroup 
                     defaultValue='Call'
-                    name='contactMethod' // Assign a name to group the radio buttons
-                    value={formData.contactMethod} // Bind to the form data state
+                    name='contactMethod' 
+                    value={formData.contactMethod} 
                     onChange={handleInputChange} >
                     <HStack spacing='24px'>
                     <Radio value='Call'>Call</Radio>
