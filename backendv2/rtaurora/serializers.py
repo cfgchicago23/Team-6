@@ -42,7 +42,7 @@ class AdminUserSerializer(serializers.ModelSerializer):
 class VolunteerUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = VolunteerUser
-        fields = ("volunteerUsername", "volunteerPassword")
+        fields = ("volunteerUsername", "volunteerPassword", "volunteerID")
 
 
 class HouseSerializer(serializers.ModelSerializer):
