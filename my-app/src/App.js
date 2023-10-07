@@ -9,6 +9,7 @@ import Profile from "./pages/profile";
 import Form from "./pages/form";
 import HouseCreationForm from "./pages/HouseCreationForm";
 import Lessons from "./pages/video_lessons";
+import LogIn from "./pages/login";
 
 const theme = extendTheme({
   fonts: {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+  },
+  {
+    path: "/login",
+    element: <LogIn />,
   },
   {
     path: "/HouseCreationForm",
