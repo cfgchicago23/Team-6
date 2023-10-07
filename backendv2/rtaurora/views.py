@@ -100,3 +100,38 @@ class PostFeedbackFormView(APIView):
         feedbackForm.save()
         # return Response(FeedbackFormSerializer(feedbackForm).data, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_200_OK)
+
+class PostHouseView(APIView):
+    def post(self, request, format=None):
+        # Aquired Parameters
+        familyName = request.query_params.get("familyName")
+        familyEmail = request.query_params.get("familyEmail")
+        familyDescription = request.query_params.get("familyDescription")
+        street = request.query_params.get("street")
+        city = request.query_params.get("city")
+        state = request.query_params.get("state")
+        zipCode = request.query_params.get("zipCode")
+        language = request.query_params.get("language")
+        recievedOn = request.query_params.get("recievedOn")
+        application = request.query_params.get("application")
+        houseImage = request.query_params.get("houseImage")
+
+        # Possible Adjustments: 
+        # house = request.query_params.get("house")
+        # volunteer_name = 'n/a'
+
+        house = House(
+            familyName=familyName,
+            familyEmail=familyEmail,
+            familyDescription=familyDescription,
+            street=street,
+            city=city,
+            state=state,
+            zipCode=zipCode,
+            language=language,
+            recievedOn=recievedOn,
+            application=application,
+            houseImage=houseImage)
+        house.save()
+        # return Response(HouseSerializer(house).data, status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK)
