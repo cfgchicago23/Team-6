@@ -94,4 +94,4 @@ class GetHouseViewSerializer(serializers.ModelSerializer):
 class GetVolunteerViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volunteer
-        fields = ["name", "hours"]  # need photos
+        fields = ["name", "hours", "email", "phone"]  # need photos
