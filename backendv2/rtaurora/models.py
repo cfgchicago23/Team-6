@@ -1,4 +1,3 @@
-from tkinter.tix import MAX
 from django.db import models
 import random
 
@@ -11,7 +10,7 @@ RATING_CHOICES = (
     ("2", "Negative"),
     ("3", "Neutral"),
     ("4", "Positive"),
-    ("5", "Very Positive")
+    ("5", "Very Positive"),
 )
 STATE_CHOICES = (
     ("na", "Choose State"),
@@ -63,8 +62,6 @@ EXPERTISE = (
     ("landscaping", "Landscaping"),
 )
 
-# Create your models here.
-
 
 class Volunteer(models.Model):
     name = models.CharField(max_length=MAX_LENGTH)
@@ -86,14 +83,27 @@ class Volunteer(models.Model):
     reference = models.TextField(blank=True)
     hours = models.IntegerField(default=0)
 
+    def __str__(self) -> str:
+        return self.name
+
+
+class AdminUser(models.Model):
+    adminUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    adminPassword = models.CharField(max_length=MAX_LENGTH)
 
     def __str__(self) -> str:
         return self.name
 
 
+class VolunteerUser(models.Model):
+    volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    volunteerPassword = models.CharField(max_length=MAX_LENGTH)
+
+
 class House(models.Model):
     familyName = models.CharField(max_length=MAX_LENGTH)
     familyEmail = models.EmailField(max_length=MAX_LENGTH, blank=True, null=True)
+    familyDescription = models.TextField(blank=True, null=True)
     street = models.TextField(blank=True, null=True)
     state = models.CharField(
         max_length=2, choices=STATE_CHOICES, default="na", null=True
@@ -102,9 +112,8 @@ class House(models.Model):
     zipCode = models.IntegerField(blank=True, null=True)
     language = models.CharField(max_length=MAX_LENGTH, blank=True, null=True)
     recievedOn = models.DateField(blank=True, null=True)
-    application = models.FileField(
-        upload_to="HouseApplications", blank=True, null=True
-    )
+    application = models.FileField(upload_to="HouseApplications", blank=True, null=True)
+    houseImage = models.ImageField(upload_to="HouseImages", blank=True, null=True)
 
 
 class Organization(models.Model):
@@ -117,7 +126,8 @@ class Organization(models.Model):
     mainContact = models.CharField(max_length=MAX_LENGTH)
     mainEmail = models.EmailField(max_length=MAX_LENGTH, blank=True)
 
-class FeedbackForm (models.Model):
+
+class FeedbackForm(models.Model):
     rating = models.CharField(max_length=2, choices=RATING_CHOICES, default="na")
     text = models.TextField(default="")
     house = models.CharField(max_length=MAX_LENGTH, default="")
