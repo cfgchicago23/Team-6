@@ -10,6 +10,7 @@ import {
   SimpleGrid,
   Image,
   ChakraProvider,
+  Heading
 } from "@chakra-ui/react";
 import axios from "axios";
 import image1 from '../pics/image2.jpg'
@@ -75,8 +76,12 @@ class HouseCreationForm extends React.Component {
           paddingLeft={59}
           paddingTop={30}
           paddingBottom={30}
+          ml={10}
           align='n center'textAlign="center">
           <VStack width="80%">
+            <Heading size="md" color="gray.800" mt="3" mb="5">
+              Enter details about a new project:
+          </Heading>
             <Input
               id="ownerName"
               placeholder="Owner Name"

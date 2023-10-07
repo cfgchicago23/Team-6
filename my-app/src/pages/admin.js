@@ -188,7 +188,7 @@ export default function Home() {
 
 
     <div style={{ height: '50px' }}></div>
-    <Button  colorScheme="green" size="lg">
+    <Button  ml={640} colorScheme="green" size="lg">
             <Link to={'/HouseCreationForm'}>House Creation</Link>
     </Button>
 

@@ -12,6 +12,13 @@ import {
     Box,
     SimpleGrid,
     Image,
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModalFooter,
+    ModalOverlay,
   } from '@chakra-ui/react'
   import { useState } from 'react';
   import axios from 'axios';
@@ -19,6 +26,7 @@ import {
   import image1 from '../pics/Group2.jpg'
   import NavBar from "../navigation/navbar"
 
+  
   export default function Form() {
       // Define state variables to store form input values
     const [formData, setFormData] = useState({
@@ -45,6 +53,8 @@ import {
         e.preventDefault();
         // Access form input values from the formData state
         console.log(formData);
+        
+
         // You can now send this data to a server or perform any other action here
     };
 
