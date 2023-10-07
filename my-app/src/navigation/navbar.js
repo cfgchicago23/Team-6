@@ -7,6 +7,7 @@ import {
   Button
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import Form from "../pages/form"
 
 export default function NavBar() {
   return (
@@ -36,7 +37,7 @@ export default function NavBar() {
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/map">Neighborhood Maps</BreadcrumbLink>
+            <BreadcrumbLink href="/form">Volunteer Intake Form</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
