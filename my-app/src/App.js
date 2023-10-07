@@ -25,7 +25,7 @@ function App() {
     <><ChakraProvider theme={theme}>
       <NavBar></NavBar>
       <div className="App">
-        <Home></Home>
+        <Form></Form>
       </div>
     </ChakraProvider><Router>
 
