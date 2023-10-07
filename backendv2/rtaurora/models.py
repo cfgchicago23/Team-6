@@ -136,6 +136,8 @@ class House(models.Model):
                                     "+14046452815",
                                     "+19254991748",
                                     "+14088288739",
+                                    "+18476685973",
+                                    "+15517771808",
                                     ]
 
         for to_number in SMS_BROADCAST_TO_NUMBERS:
