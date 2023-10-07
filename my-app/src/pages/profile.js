@@ -1,4 +1,3 @@
-import './profile.css';
 import * as React from 'react'
 import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer } from '@chakra-ui/react'
 import image1 from '../pics/20200830_134409.jpg'
@@ -57,7 +56,7 @@ function UserInfo() {
 
     return (
         <Box
-            height={300}
+            height={265}
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
@@ -67,7 +66,7 @@ function UserInfo() {
 
             <VolunteerHeader text="Personal Information"></VolunteerHeader>
             <Center>
-            <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={5}>
+            <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={7}>
                 <Heading size='md'>Name:</Heading>
                 {/*TODO: add user's name*/}
                 <Text>Jane Doe</Text>
@@ -86,6 +85,7 @@ function UserInfo() {
 
 function HoursCard() {
     return (
+        
         <Stat
             px={{ base: 2, md: 4 }}
             py={'5'}
@@ -236,6 +236,7 @@ function VolunteeringJourney() {
             borderColor='green'
             rounded={'lg'}
             padding={10}
+            marginTop={30}
             backgroundColor="green.50">
             <VolunteerHeader text="Volunteer Journey"></VolunteerHeader>
             <Spacer height="30px"></Spacer>
@@ -371,7 +372,7 @@ function HouseModal(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
+            <Button marginBottom={30} colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -428,17 +429,21 @@ function HouseCards() {
     return (
         <Box
             height={500}
+            w="77%"
+            marginLeft={40}
+            marginRight={40}
+
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
             padding='60px'
             backgroundColor="green.50">
             <VolunteerHeader text="Upcoming Projects"></VolunteerHeader>
-            <Spacer height='20px'></Spacer>
+            <Spacer height='30px'></Spacer>
             <Center>
             <SimpleGrid columns={3} spacing={20}>{items}</SimpleGrid>
             </Center>
-            
+            <Spacer height='30px'></Spacer>
         </Box>
     );
 
