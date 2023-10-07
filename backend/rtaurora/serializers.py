@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Volunteer, Organization, House, FeedbackForm
+from .models import Volunteer, Organization, House, FeedbackForm, VolunteerUser, AdminUser
 
 
 class VolunteerSerializer(serializers.ModelSerializer):
@@ -13,6 +13,10 @@ class OrganizationSerializer(serializers.ModelSerializer):
         model = Organization
         fields = ('id', 'name', 'street', 'city', 'state', 'zipCode', 'mainContact', 'mainEmail')
 
+class VolunteerUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VolunteerUser
+        fields = ('volunteerUsername', 'volunteerPassword')
 
 class HouseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,3 +38,8 @@ class FeedbackFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackForm
         fields = ('id', 'rating', 'text', 'house', 'volunteer_name')
+        
+class AdminUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdminUser
+        fields = ('adminUsername', 'adminPassword')

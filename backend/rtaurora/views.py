@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import VolunteerSerializer, OrganizationSerializer, HouseSerializer, FeedbackFormSerializer
-from .models import Volunteer, Organization, House, FeedbackForm
+from .serializers import VolunteerSerializer, OrganizationSerializer, AdminUserSerializer, VolunteerUserSerializer, FeedbackFormSerializer, HouseSerializer
+from .models import Volunteer, Organization, AdminUser, VolunteerUser, FeedbackForm, House
 
 
 class VolunteerView (viewsets.ModelViewSet):
@@ -12,7 +12,15 @@ class VolunteerView (viewsets.ModelViewSet):
 class OrganizationView (viewsets.ModelViewSet):
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
+    
+    
+class VolunteerUserView (viewsets.ModelViewSet):
+    serializer_class = VolunteerUserSerializer
+    queryset = VolunteerUser.objects.all()
 
+class AdminUserView (viewsets.ModelViewSet):
+    serializer_class = AdminUserSerializer
+    queryset = AdminUser.objects.all()
 
 class HouseView (viewsets.ModelViewSet):
     serializer_class = HouseSerializer
@@ -21,3 +29,4 @@ class HouseView (viewsets.ModelViewSet):
 class FeedbackFormView (viewsets.ModelViewSet):
     serializer_class = FeedbackFormSerializer
     queryset = FeedbackForm.objects.all()
+    
