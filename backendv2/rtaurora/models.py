@@ -100,6 +100,7 @@ class AdminUser(models.Model):
 class VolunteerUser(models.Model):
     volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
     volunteerPassword = models.CharField(max_length=MAX_LENGTH)
+    volunteerID = models.CharField(max_length=MAX_LENGTH, default='')
 
 
 class House(models.Model):

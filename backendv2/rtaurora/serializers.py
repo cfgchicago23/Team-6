@@ -42,7 +42,7 @@ class AdminUserSerializer(serializers.ModelSerializer):
 class VolunteerUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = VolunteerUser
-        fields = ("volunteerUsername", "volunteerPassword")
+        fields = ("volunteerUsername", "volunteerPassword", "volunteerID")
 
 
 class HouseSerializer(serializers.ModelSerializer):
@@ -94,4 +94,4 @@ class GetHouseViewSerializer(serializers.ModelSerializer):
 class GetVolunteerViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volunteer
-        fields = ["name", "hours"]  # need photos
+        fields = ["name", "hours", "email", "phone"]  # need photos
