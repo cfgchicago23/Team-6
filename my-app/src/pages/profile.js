@@ -1,4 +1,3 @@
-import './profile.css';
 import * as React from 'react'
 import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer } from '@chakra-ui/react'
 import image1 from '../pics/20200830_134409.jpg'
