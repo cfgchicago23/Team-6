@@ -12,7 +12,6 @@ import streak from '../pics/streak.png'
 import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
-
 import NavBar from "../navigation/navbar";
 
 import {
@@ -24,7 +23,6 @@ import {
     Box,
     Image,
     chakra,
-    Flex,
     SimpleGrid,
     Stat,
     StatLabel,
@@ -45,9 +43,6 @@ import {
     useDisclosure,
     Center
 } from '@chakra-ui/react'
-import NavBar from "../navigation/navbar"
-
-<NavBar></NavBar>
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
