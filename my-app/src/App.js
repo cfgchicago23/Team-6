@@ -1,19 +1,45 @@
-import logo from './logo.svg';
+
 import './App.css';
 import * as React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/home';
+import { extendTheme } from '@chakra-ui/react'
+import NavBar from './navigation/navbar';
+import Profile from './pages/profile';
+import Form from './pages/form';
+import { BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+
+const theme = extendTheme({
+  fonts: {
+    heading: `'Inter', sans-serif`,
+    body: `'Inter', sans-serif`,
+  },
+})
 
 function App() {
   return (
-    <ChakraProvider>
-    <div className="App">
-      <Home></Home>
-    </div>
-    </ChakraProvider>
+    <><ChakraProvider theme={theme}>
+      <NavBar></NavBar>
+      <div className="App">
+        <Home></Home>
+      </div>
+    </ChakraProvider><Router>
+
+        <div className="App">
+          <Routes>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/pages/profile" component={Profile} />
+            <Route exact path="/pages/form" component={Form} />
+          </Routes>
+        </div>
+      </Router></>
   );
 
 
 }
+
+
+
+
 
 export default App;
