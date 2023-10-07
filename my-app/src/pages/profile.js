@@ -1,13 +1,17 @@
 import './profile.css';
 import * as React from 'react'
-import { ChakraProvider, Heading, Spacer } from '@chakra-ui/react'
+import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer } from '@chakra-ui/react'
 import image1 from '../pics/20200830_134409.jpg'
 import image2 from '../pics/20210806_084254.jpg'
 import image3 from '../pics/20231004_103617.jpg'
 import image4 from '../pics/DSC01804.JPG'
 import image5 from '../pics/Volunteer_Female_Flooring Repair.jpg'
+import house1 from '../pics/20201107_113446.jpg'
+import house2 from '../pics/20220621_125432.jpg'
+import house3 from '../pics/70790026.jpg'
 
 import {
+    Card,
     Radio,
     RadioGroup,
     HStack,
@@ -25,7 +29,16 @@ import {
     Text,
     FormControl,
     FormLabel,
-    Button
+    Button,
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModalFooter,
+    ModalOverlay,
+    useDisclosure,
+    Center
 } from '@chakra-ui/react'
 
 function VolunteerHeader(prop) {
@@ -37,16 +50,20 @@ function VolunteerHeader(prop) {
 }
 
 function UserInfo() {
-    
+
     return (
         <Box
-        height={300}
-        border={'3px solid'}
-        borderColor='green'
-        rounded={'lg'}
-        padding={5}>
+            height={300}
+            border={'3px solid'}
+            borderColor='green'
+            rounded={'lg'}
+            padding={5}
+            backgroundColor="green.50"
+        >
+
             <VolunteerHeader text="Personal Information"></VolunteerHeader>
-            <SimpleGrid columns={2} spacingY={5} padding={5}>
+            <Center>
+            <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={5}>
                 <Heading size='md'>Name:</Heading>
                 {/*TODO: add user's name*/}
                 <Text>Jane Doe</Text>
@@ -55,8 +72,10 @@ function UserInfo() {
                 <Text>janedoe@gmail.com</Text>
                 <Heading size='md'>Phone:</Heading>
                 {/*TODO: add user's phone number*/}
-                <Text>123-456-789</Text>
+                <Text>123-456-7890</Text>
             </SimpleGrid>
+            </Center>
+            
         </Box>
     )
 }
@@ -69,16 +88,15 @@ function HoursCard() {
             shadow={'xl'}
             border={'1px solid'}
             borderColor='black'
-            rounded={'lg'}>
-            <Flex justifyContent={'space-between'}>
+            rounded={'lg'}
+            backgroundColor='white'>
                 <Box>
                     <Stat>
                         <StatLabel>Volunteer Hours</StatLabel>
                         {/*TODO: add user's volunteer hours*/}
-                        <StatNumber>5000</StatNumber>
+                        <StatNumber>5050</StatNumber>
                     </Stat>
                 </Box>
-            </Flex>
         </Stat>
     )
 }
@@ -86,20 +104,22 @@ function HoursCard() {
 function MoneyCard() {
     return (
         <Stat
-            px={{ base: 2, md: 4 }}
+            px={'3'}
             py={'5'}
             shadow={'xl'}
             border={'1px solid'}
             borderColor='black'
-            rounded={'lg'}>
-            <Flex justifyContent={'space-between'}>
+            rounded={'lg'}
+            backgroundColor='white'>
                 <Box>
                     <Stat>
                         <StatLabel>Value Generated</StatLabel>
+                        <Center>
                         <StatNumber>$100,000</StatNumber>
+                        </Center>
+                        
                     </Stat>
                 </Box>
-            </Flex>
         </Stat>
     )
 }
@@ -112,18 +132,17 @@ function ProgressCard() {
             shadow={'xl'}
             border={'1px solid'}
             borderColor='black'
-            rounded={'lg'}>
-            <Flex justifyContent={'space-between'}>
+            rounded={'lg'}
+            backgroundColor='white'>
                 <Box>
-
-                    <StatLabel>Progress Towards Next Badge</StatLabel>
-
-                    <CircularProgress value={75} size='120px' color="green.400">
-                        <CircularProgressLabel>75%</CircularProgressLabel>
+                    <StatLabel>Progress Towards Next 100 hr Milestone</StatLabel>
+                    <Center>
+                    <CircularProgress value={50} size='120px' color="green.400">
+                        <CircularProgressLabel>50%</CircularProgressLabel>
                     </CircularProgress>
-
+                    </Center>
                 </Box>
-            </Flex>
+            
         </Stat>)
 }
 
@@ -134,42 +153,44 @@ function VolunteeringJourney() {
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
-            padding={10}>
+            padding={10}
+            backgroundColor="green.50">
             <VolunteerHeader text="Volunteer Journey"></VolunteerHeader>
             <Spacer height="80px"></Spacer>
             <SimpleGrid columns={3} spacing={2}>
                 <HoursCard />
                 <MoneyCard />
                 <ProgressCard />
-
             </SimpleGrid>
         </Box>
 
     )
 }
 
+function MyBadges() {
+    let badges = []
+}
+
 function GridPic(props) {
     return (
-        <Box
-            backgroundColor='green.100'
-            height='300px'
-            width='300px'
-            border={'3px solid'}
-            borderColor='green'
-            rounded={'lg'}
-            padding='10px'
-        >
-            <Heading size='sm'>{props.date}</Heading>
-            <Spacer height='10px'></Spacer>
-            <Image height='180px' width='280px' src={props.img} ></Image>
-            <Spacer height='10px'></Spacer>
-            <Text verticalAlign='10%'>{props.caption}</Text>
-        </Box>
+        <Card height='330px' border='solid 3px' borderColor='green'>
+            <CardHeader fontWeight='bold'>{props.date}</CardHeader>
+            <CardBody>
+                <Center>
+                <Image height='170px' width='220px' src={props.img} ></Image>
+                </Center>
+                
+            </CardBody>
+            <CardFooter fontWeight='bold' fontSize='14px'>
+                <Text verticalAlign='10%'>{props.caption}</Text>
+            </CardFooter>
+        </Card>
+
 
     )
 }
 
-{/* TODO: implement this with the backend */}
+{/* TODO: implement this with the backend */ }
 function FeedbackForm() {
     return (
         <Box
@@ -177,27 +198,28 @@ function FeedbackForm() {
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
-            padding={10}>
+            padding={10}
+            backgroundColor="green.50">
             <VolunteerHeader text="Feedback Form"></VolunteerHeader>
             <Spacer height='20px'></Spacer>
             <FormControl>
                 <FormLabel>
                     How would you describe your volunteer experience?
                 </FormLabel>
-                <RadioGroup defaultValue='Neutral'>
+                <RadioGroup defaultValue='Neutral' >
                     <HStack spacing='24px'>
-                        <Radio value='Very Negative'>Very Negative</Radio>
-                        <Radio value='Negative'>Negative</Radio>
-                        <Radio value='Neutral'>Neutral</Radio>
-                        <Radio value='Positive'>Positive</Radio>
-                        <Radio value='Very Positive'>Positive</Radio>
+                        <Radio backgroundColor='white' value='Very Negative'>Very Negative</Radio>
+                        <Radio backgroundColor='white' value='Negative'>Negative</Radio>
+                        <Radio backgroundColor='white' value='Neutral'>Neutral</Radio>
+                        <Radio backgroundColor='white' value='Positive'>Positive</Radio>
+                        <Radio backgroundColor='white' value='Very Positive'>Positive</Radio>
                     </HStack>
                 </RadioGroup>
                 <Spacer height='20px'></Spacer>
                 <FormLabel>
                     Please share any additional comments you have for us!
                 </FormLabel>
-                <Input type='text'></Input>
+                <Input type='text' color='black' backgroundColor='white'></Input>
                 <Button type="submit" colorScheme="green" mt={4}>
                     Submit
                 </Button>
@@ -213,16 +235,17 @@ function GalleryGrid() {
     let dates = ['8/7/2023', '5/3/2023', '7/25/2022', '1/14/2022', '11/5/2021']
     let img = [image1, image2, image3, image4, image5]
     let items = []
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
         items.push(<GridPic img={img[i]} date={dates[i]} caption={captions[i]}></GridPic>)
     }
     return (
         <Box
-            height={1220}
+            height={805}
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
-            padding={10}>
+            padding={5}
+            backgroundColor="green.50">
             <VolunteerHeader text="Personal Gallery"></VolunteerHeader>
             <Spacer height='20px'></Spacer>
             <SimpleGrid columns={2} spacing={4}>
@@ -233,8 +256,105 @@ function GalleryGrid() {
 
 }
 
-export default function Profile() {
+function HousesCard(props) {
+    return (
+        <Card maxW='400px' height='330px' border='solid 3px' borderColor='green'>
+            <CardHeader fontWeight='bold'>{props.cardNum}</CardHeader>
 
+            <CardBody>
+                <Center>
+                    <Image height='150px' width='240px' src={props.img} ></Image>
+                </Center>
+            </CardBody>
+
+            <CardFooter fontWeight='bold'>
+
+                <HouseModal houseNumber={props.cardNum} info={props.houseDescription} />
+
+            </CardFooter>
+
+        </Card>
+    )
+}
+
+function HouseModal(props) {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    return (
+        <>
+            <Button colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>{props.houseNumber}</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Text>{props.info}</Text>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme='green' mr={3} onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
+    )
+}
+
+function FeedbackModal(props) {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    return (
+        <>
+            <Button colorScheme='green' onClick={onOpen} width='300px' height='80px' fontSize='20px'>Give Us Some Feedback!</Button>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent maxW='700px'>
+                    <ModalHeader>{props.houseNumber}</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <FeedbackForm></FeedbackForm>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme='green' mr={3} onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
+    )
+}
+
+function HouseCards() {
+    let info = ["The Doe family is incredibly excited to receive some help with their home! They are an older couple who have struggled to keep up with various internal and external repairs in recent years. This project will involve painting, floor instalation, and cleaning.",
+        "The Smiths are a happy family of three and cannot wait to meet you! They struggle with clutter in their home, as caring for their son with severe autism is their top priority. This project will involve heavy lifting and lots of cleaning!",
+        "Ellen Galvez is a widow, and finds it difficult to keep up with the upkeep of her home. She has lived in her Aurora home for 50 years, and can't wait to see it with a fresh coat of paint and some new plumbing! This project requires at least one skilled plumber."]
+    let cardNum = ['House 29: October 27th', 'House 30: November 11th', 'House 31: December 20th']
+    let img = [house1, house2, house3]
+    let items = []
+    for (let i = 0; i < 3; i++) {
+        items.push(<HousesCard img={img[i]} cardNum={cardNum[i]} houseDescription={info[i]}></HousesCard>)
+    }
+    return (
+        <Box
+            height={500}
+            border={'3px solid'}
+            borderColor='green'
+            rounded={'lg'}
+            padding='60px'
+            backgroundColor="green.50">
+            <VolunteerHeader text="Upcoming Projects"></VolunteerHeader>
+            <Spacer height='20px'></Spacer>
+            <Center>
+            <SimpleGrid columns={3} spacing={20}>{items}</SimpleGrid>
+            </Center>
+            
+        </Box>
+    );
+
+}
+
+export default function Profile() {
     return (
         <ChakraProvider>
             <SimpleGrid columns={2}>
@@ -243,12 +363,17 @@ export default function Profile() {
                     <Spacer height='10px'></Spacer>
                     <VolunteeringJourney></VolunteeringJourney>
                     <Spacer height='10px'></Spacer>
-                    <FeedbackForm></FeedbackForm>
                 </Box>
                 <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
                     <GalleryGrid />
                 </Box>
             </SimpleGrid>
+            <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
+                <HouseCards />
+                <Spacer height='20px'></Spacer>
+                <FeedbackModal/>
+                <Spacer height='20px'></Spacer>
+            </Box>
         </ChakraProvider>
 
     )
