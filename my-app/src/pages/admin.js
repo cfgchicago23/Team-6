@@ -22,6 +22,9 @@ export default function Home() {
               Welcome, Heather!
           </Heading>
           <div style={{ height: 'px' }}></div>
+
+          <div style={{ height: '25px' }}></div>
+          
     
           <Heading size='lg' color='#035422'>
               Upcoming Projects:
@@ -40,7 +43,7 @@ export default function Home() {
                     <Box mr={2}> {/* Margin right for spacing */}
                       <FaHome /> {/* House icon */}
                     </Box>
-                    <Box flex="1" textAlign="left">
+                    <Box flex="1" textAlign="left" marginRight="30px">
                       Smith House
                     </Box>
                   </Flex>
@@ -48,10 +51,10 @@ export default function Home() {
 
                     
                   <Flex alignItems="center"> {/* Flex container */}
-                    <Box mr={2}> {/* Margin right for spacing */}
+                    <Box mr={2} > {/* Margin right for spacing */}
                       <FaClock /> {/* House icon */}
                     </Box>
-                    <Box flex="1" >
+                    <Box flex="1" marginRight="30px" >
                       3 Days Till Event
                     </Box>
                   </Flex>
@@ -92,7 +95,7 @@ export default function Home() {
                     <Box mr={2}> {/* Margin right for spacing */}
                       <FaHome /> {/* House icon */}
                     </Box>
-                    <Box flex="1" textAlign="left">
+                    <Box flex="1" textAlign="left" marginRight="30px">
                       Patel House
                     </Box>
                   </Flex>
@@ -101,7 +104,7 @@ export default function Home() {
                     <Box mr={2}> {/* Margin right for spacing */}
                       <FaClock /> {/* House icon */}
                     </Box>
-                    <Box flex="1" >
+                    <Box flex="1" marginRight="30px">
                       5 Days Till Event
                     </Box>
                   </Flex>
@@ -130,6 +133,22 @@ export default function Home() {
             </>
           )}
         </AccordionItem>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
 </Accordion>
 
 
