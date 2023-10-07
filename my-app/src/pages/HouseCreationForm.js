@@ -9,6 +9,7 @@ import {
   Box,
   SimpleGrid,
   Image,
+  ChakraProvider,
 } from "@chakra-ui/react";
 import axios from "axios";
 import image1 from '../pics/image2.jpg'
@@ -60,7 +61,7 @@ class HouseCreationForm extends React.Component {
 
   render() {
     return (
-      <Flex>
+      <ChakraProvider>
         <NavBar></NavBar>
         {/* TODO: Include the nav bar */}
         <Box
@@ -167,7 +168,8 @@ class HouseCreationForm extends React.Component {
         {/* TODO: Include the footer bar */}
         </SimpleGrid>
         </Box>
-      </Flex>
+        </ChakraProvider>
+      
     );
   }
 }
