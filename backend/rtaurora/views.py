@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets, status
-from .serializers import VolunteerSerializer, OrganizationSerializer, HouseSerializer, FeedbackFormSerializer, GetHouseViewSerializer
-from .models import Volunteer, Organization, House, FeedbackForm
+from .serializers import VolunteerSerializer, OrganizationSerializer, AdminUserSerializer, VolunteerUserSerializer, FeedbackFormSerializer, HouseSerializer, GetHouseViewSerializer
+from .models import Volunteer, Organization, AdminUser, VolunteerUser, FeedbackForm, House
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -14,7 +14,15 @@ class VolunteerView (viewsets.ModelViewSet):
 class OrganizationView (viewsets.ModelViewSet):
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
+    
+    
+class VolunteerUserView (viewsets.ModelViewSet):
+    serializer_class = VolunteerUserSerializer
+    queryset = VolunteerUser.objects.all()
 
+class AdminUserView (viewsets.ModelViewSet):
+    serializer_class = AdminUserSerializer
+    queryset = AdminUser.objects.all()
 
 class HouseView (viewsets.ModelViewSet):
     serializer_class = HouseSerializer

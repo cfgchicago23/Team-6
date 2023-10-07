@@ -90,6 +90,17 @@ class Volunteer(models.Model):
     def __str__(self) -> str:
         return self.name
 
+class AdminUser(models.Model):
+    adminUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    adminPassword = models.CharField(max_length=MAX_LENGTH)
+    
+    def __str__(self) -> str:
+        return self.name
+
+class VolunteerUser(models.Model):
+    volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    volunteerPassword = models.CharField(max_length=MAX_LENGTH)
+    
 
 class House(models.Model):
     familyName = models.CharField(max_length=MAX_LENGTH)
