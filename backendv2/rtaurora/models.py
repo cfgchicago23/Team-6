@@ -93,3 +93,9 @@ class AdminUser(models.Model):
     
     def __str__(self) -> str:
         return self.name
+
+
+class VolunteerUser(models.Model):
+    volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    volunteerPassword = models.CharField(max_length=MAX_LENGTH)
+    
