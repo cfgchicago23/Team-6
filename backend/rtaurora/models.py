@@ -25,6 +25,7 @@ class Volunteer(models.Model):
 
 
 class House(models.Model):
+    house_id = models.CharField(max_length=6)
     owner_name = models.CharField(max_length=MAX_LENGTH)
     owner_email = models.EmailField(max_length=MAX_LENGTH, blank=True)
     owner_phone = models.CharField(max_length=MAX_LENGTH)
