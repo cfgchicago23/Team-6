@@ -171,7 +171,7 @@ export default function Home() {
         mx='100'
         borderRadius='50px'
       >
-        <Heading size="2xl" color="#035422">
+        <Heading size="2xl" color="#A3A5A2">
           Why Volunteer?
         </Heading>
 
