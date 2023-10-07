@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +28,15 @@ SECRET_KEY = "django-insecure-^jndnbeyuf*_0x#r74x7!d(y%h2r^*)qmrjbi+1*fha6x+3mrq
 DEBUG = True
 
 ALLOWED_HOSTS = []
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Application definition
+
+TWILIO_ACCOUNT_SID = env("MY_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = env("TWILIO_AUTH_TOKEN")
+TWILIO_NUMBER = env("MY_TWILIO_NUMBER")
 
 INSTALLED_APPS = [
     "django.contrib.admin",

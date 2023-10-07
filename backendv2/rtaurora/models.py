@@ -1,4 +1,6 @@
 from django.db import models
+from backendv2.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_NUMBER
+from twilio.rest import Client
 import random
 
 MAX_LENGTH = 255
@@ -114,6 +116,30 @@ class House(models.Model):
     recievedOn = models.DateField(blank=True, null=True)
     application = models.FileField(upload_to="HouseApplications", blank=True, null=True)
     houseImage = models.ImageField(upload_to="HouseImages", blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        # Twilio code to send a text message
+        account_sid = TWILIO_ACCOUNT_SID
+        auth_token = TWILIO_AUTH_TOKEN
+        client = Client(account_sid, auth_token)
+
+        message_body = (
+            f'Rebuilding Together Aurora: A new project has been added!\n'
+            f'Family Name: {self.familyName}\n'
+            f'Family Description: {self.familyDescription}\n'
+            f'Language: {self.language}\n'
+            f'Please register to volunteer if interested!'
+        )
+
+        message = client.messages.create(
+            body=message_body,
+            from_=TWILIO_NUMBER,
+            to='+12065399877'
+        )
+
+        print(message.sid)
+
+        return super().save(*args, **kwargs)
 
 
 class Organization(models.Model):
