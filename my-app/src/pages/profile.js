@@ -43,7 +43,9 @@ import {
     useDisclosure,
     Center
 } from '@chakra-ui/react'
+import NavBar from "../navigation/navbar"
 
+<NavBar></NavBar>
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
@@ -63,7 +65,7 @@ function UserInfo() {
             padding={5}
             backgroundColor="green.50"
         >
-
+            
             <VolunteerHeader text="Personal Information"></VolunteerHeader>
             <Center>
             <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={7}>
@@ -193,7 +195,7 @@ function BabyCard(){
             
                 <Box>
 
-                <StatLabel>First Build</StatLabel>
+                <StatLabel>1st Construction</StatLabel>
                     <CircularProgress value={100} size='100px' color="red.400">
                         <CircularProgressLabel>
                             <Image 
@@ -240,7 +242,7 @@ function VolunteeringJourney() {
             backgroundColor="green.50">
             <VolunteerHeader text="Volunteer Journey"></VolunteerHeader>
             <Spacer height="30px"></Spacer>
-            <SimpleGrid columns={4} spacing={2}>
+            <SimpleGrid marginLeft={7} columns={4} spacing={2}>
                 <StreakCard />
                 <BabyCard />
                 <BrushCard />

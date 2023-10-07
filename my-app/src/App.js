@@ -3,7 +3,6 @@ import * as React from "react";
 import { ChakraBaseProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import Home from "./pages/home";
 import Admin from "./pages/admin";
 import Profile from "./pages/profile";
@@ -40,7 +39,7 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/pages/form",
+    path: "/form",
     element: <Form />,
   },
 ]);
@@ -48,6 +47,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ChakraBaseProvider theme={theme}>
+      {/* <NavBar></NavBar> */}
       <RouterProvider router={router} />
     </ChakraBaseProvider>
     // <>
