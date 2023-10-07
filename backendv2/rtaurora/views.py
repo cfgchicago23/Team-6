@@ -82,3 +82,18 @@ class GetVolunteerView(APIView):
         return Response(
             GetVolunteerViewSerializer(user, many=True).data, status=status.HTTP_200_OK
         )
+
+class PostFeedbackFormView(APIView):
+    def post(self, request, format=None):
+        # Aquired Parameters
+        rating = request.query_params.get("rating")
+        text = request.query_params.get("text")
+        house = 'n/a'
+        volunteer_name = request.query_params.get("volunteer_name")
+
+        # Possible Adjustments: 
+        # house = request.query_params.get("house")
+        # volunteer_name = 'n/a'
+
+
+        return Response(status=status.HTTP_200_OK)
