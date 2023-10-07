@@ -42,7 +42,7 @@ export default function NavBar() {
 
         </Breadcrumb>
 
-        <Button ml='600px'colorScheme='green' variant={'outline'}>
+        <Button ml='800px'colorScheme='green' variant={'outline'}>
           <Link to={'/login'}>Login</Link>
         </Button>
 
