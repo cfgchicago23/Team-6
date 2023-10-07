@@ -1,4 +1,4 @@
-import { Heading, Flex, Box, Spacer, Text, Stack, Button, VStack} from '@chakra-ui/react'
+import { Heading, Flex, Box, Spacer, Text, Stack, Button, VStack, Image } from '@chakra-ui/react'
 import TextTransition, { presets } from 'react-text-transition';
 import React from 'react';
 
@@ -76,11 +76,13 @@ export default function Home() {
                 Why Volunteer?
               </Heading>
 
-              <Heading color='green' align='center' pt='5' >
+            <Heading color='green' align='center' pt='5' >
                 <TextTransition springConfig={presets.wobbly}>{TEXTS[index % TEXTS.length]}</TextTransition>
-                </Heading>
+            </Heading>
                 
             </VStack>
+
+
               
         </>
 

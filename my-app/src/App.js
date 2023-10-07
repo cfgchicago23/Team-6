@@ -10,6 +10,7 @@ import Profile from './pages/profile';
 import HouseCreationForm from './pages/HouseCreationForm'
 import Form from './pages/form';
 import { BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import Lessons from './pages/video_lessons';
 
 const theme = extendTheme({
   fonts: {
@@ -26,7 +27,8 @@ function App() {
     <><ChakraProvider theme={theme}>
       <NavBar></NavBar>
       <div className="App">
-        <Form></Form>
+        <Lessons></Lessons>
+        {/* <Form></Form> */}
       </div>
     </ChakraProvider><Router>
 
