@@ -30,3 +30,7 @@
 //     // Optionally, reset the form after submission
 //     contactForm.reset();
 // });
+
+export default function Form() {
+    
+}
