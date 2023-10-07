@@ -13,14 +13,10 @@ import streak from '../pics/streak.png'
 import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
 import map from '../pics/navigation_map.png'
 import { Link } from 'react-router-dom';
 
 import NavBar from "../navigation/navbar";
->>>>>>> b431ff4d6613174d8d5cfe04fe85f14e2e89adf5
 
 import {
     Card,
@@ -50,13 +46,7 @@ import {
     ModalOverlay,
     useDisclosure,
     Center,
-    Stack
 } from '@chakra-ui/react'
-<<<<<<< HEAD
-import NavBar from "../navigation/navbar";
-
-=======
->>>>>>> b431ff4d6613174d8d5cfe04fe85f14e2e89adf5
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
