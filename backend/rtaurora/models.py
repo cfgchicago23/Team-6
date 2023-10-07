@@ -71,6 +71,7 @@ class Volunteer(models.Model):
     role = models.CharField(max_length = 20, choices=EXPERTISE, default="general")
     other = models.TextField(blank=True)
     reference = models.TextField(blank=True)
+    hours = models.IntegerField(default=0)
 
 
     def __str__(self) -> str:
