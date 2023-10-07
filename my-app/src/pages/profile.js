@@ -46,9 +46,13 @@ import {
     ModalOverlay,
     useDisclosure,
     Center,
+<<<<<<< HEAD
     
 } from '@chakra-ui/react'
 
+=======
+} from '@chakra-ui/react'
+>>>>>>> da5b5b964940c7b07e1a1e12f23a0f86ede56397
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
