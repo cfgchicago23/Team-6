@@ -1,45 +1,45 @@
-import logo from './logo.svg';
+
 import './App.css';
 import * as React from 'react'
-import { BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/home';
-import Profile from "./pages/profile";
-import Form from "./pages/form";
+import { extendTheme } from '@chakra-ui/react'
+import NavBar from './navigation/navbar';
+import Profile from './pages/profile';
+import Form from './pages/form';
+import { BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+
+const theme = extendTheme({
+  fonts: {
+    heading: `'Inter', sans-serif`,
+    body: `'Inter', sans-serif`,
+  },
+})
 
 function App() {
   return (
-    <ChakraProvider>
-      
-    <div className="App">
-      <Home></Home>
-      <Router>
-      <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/pages/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/pages/form">Form</Link>
-              </li>
-            </ul>
-        </nav>
+    <><ChakraProvider theme={theme}>
+      <NavBar></NavBar>
+      <div className="App">
+        <Home></Home>
+      </div>
+    </ChakraProvider><Router>
+
         <div className="App">
           <Routes>
             <Route exact path="/" component={Home} />
-            <Route exact path="/pages/profile" component={Profile} /> 
-            <Route exact path="/pages/form" component={Form} /> 
+            <Route exact path="/pages/profile" component={Profile} />
+            <Route exact path="/pages/form" component={Form} />
           </Routes>
         </div>
-      </Router>
-    </div>
-    </ChakraProvider>
+      </Router></>
   );
 
 
 }
+
+
+
+
 
 export default App;
