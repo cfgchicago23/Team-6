@@ -18,7 +18,7 @@ import {
   import { useState } from 'react';
   import axios from 'axios';
   import './form.css';
-  import image1 from '../pics/20210806_084254.jpg'
+  import image1 from '../pics/Group2.jpg'
 
   export default function Form() {
       // Define state variables to store form input values
@@ -62,23 +62,30 @@ import {
       <ChakraProvider>
           <Box
             rounded={'lg'}
-            padding={10}
             bg='green.50'
         >
-        <SimpleGrid columns={2} spacingY={5} padding={5}>
+        <SimpleGrid columns={2} spacingY={0} padding={0}>
             {/* <Box>
                 <Image>
                     image1
                 </Image>
             </Box> */}
-            <Image image1/>
+            <Image src={image1}
+            alt="Image Description"
+            h="100%"
+            style={{ opacity: 0.7 }} 
+            ></Image> 
+            <Center>
           <form onSubmit={handleSubmit} >
             <FormControl isRequired 
                         borderColor='gray'
                         rounded={'lg'}
-                        width={0.7}
-                        align='n center'
+                        paddingRight={59.9}
+                        paddingLeft={59}
+                        paddingTop={30}
+                        paddingBottom={30}
                         >
+                
                 <FormLabel>Name</FormLabel>
                 <Input 
                     id="name"
@@ -98,7 +105,6 @@ import {
                     value={formData.email}
                     onChange={handleInputChange}
                     />                
-                <FormHelperText>We'll never share your email.</FormHelperText>
 
                 <FormLabel marginTop={3}>Phone Number</FormLabel>
                 <Input 
@@ -124,7 +130,7 @@ import {
                     </HStack>
                 </RadioGroup>
 
-                <FormLabel>Street Address</FormLabel>
+                <FormLabel marginTop={3}>Street Address</FormLabel>
                 <Input id="address"
                     type="address"
                     name="address"
@@ -132,7 +138,7 @@ import {
                     value={formData.address}
                     onChange={handleInputChange}/>
 
-                <FormLabel>State</FormLabel>
+                <FormLabel marginTop={3}>State</FormLabel>
                 <Input 
                     id="state"
                     type="state"
@@ -140,7 +146,7 @@ import {
                     value={formData.state}
                     onChange={handleInputChange}/>
 
-                <FormLabel>Zip Code</FormLabel>
+                <FormLabel marginTop={3}>Zip Code</FormLabel>
                 <Input id="zip"
                     type="zip"
                     name="zip"
@@ -148,7 +154,7 @@ import {
                     value={formData.zip}
                     onChange={handleInputChange} />
 
-                <FormLabel>Date of Birth</FormLabel>
+                <FormLabel marginTop={3}>Date of Birth</FormLabel>
                 <Input id="dob"
                     type="dob"
                     name="dob"
@@ -156,7 +162,7 @@ import {
                     value={formData.dob}
                     onChange={handleInputChange}/>
 
-                <FormLabel as='legend'>
+                <FormLabel marginTop={3} as='legend'>
                     Are you over 18?
                 </FormLabel>
                 <RadioGroup defaultValue='Yes'
@@ -171,15 +177,15 @@ import {
                     </HStack>
                 </RadioGroup>
 
-                <FormLabel>T-Shirt Size</FormLabel>
+                <FormLabel marginTop={3}>T-Shirt Size</FormLabel>
                 <Select 
                 placeholder='Select size'
                 id="size"
                 type="size"
                 name="size"
                 value={formData.size}
-                onChange={handleInputChange}
-                variant='filled'>
+                borderColor='gray'
+                onChange={handleInputChange}>
                     <option>X-Small</option>
                     <option>Small</option>
                     <option>Medium</option>
@@ -189,7 +195,7 @@ import {
                     <option>3x-Large</option>
                 </Select>   
 
-                <FormLabel as='legend'>
+                <FormLabel marginTop={3} as='legend'>
                     Availability
                 </FormLabel>
                 <RadioGroup 
@@ -206,14 +212,14 @@ import {
                     </HStack>
                 </RadioGroup>
 
-                <FormLabel>Preferred Role</FormLabel>
+                <FormLabel marginTop={3}>Preferred Role</FormLabel>
                 <Select 
                 id="role"
                 type="role"
                 name="role"
                 placeholder="Select a role"
                 value={formData.role}
-                variant='filled'
+                borderColor='gray'
                 onChange={handleInputChange}>
                     <option>General Volunteer</option>
                     <option>Carpentry</option>
@@ -227,20 +233,20 @@ import {
                     <option>Landscaping</option>
                 </Select>
 
-                <FormLabel>Do you have any certifications or licenses you want to share with us?</FormLabel>
+                <FormLabel marginTop={3}>Do you have any certifications or licenses you want to share with us?</FormLabel>
                 <Input type='license' 
                 id="license"
                 name="license"
                 value={formData.license}
                 onChange={handleInputChange}/>
             
-                <FormLabel>Other</FormLabel>
+                <FormLabel marginTop={3}>Other</FormLabel>
                 <Input type='other' id="other"
                 name="other"
                 value={formData.other}
                 onChange={handleInputChange}/>
             
-                <FormLabel as='legend'>
+                <FormLabel marginTop={3} as='legend'>
                     How did you hear about us?
                 </FormLabel>
                 <RadioGroup 
@@ -261,6 +267,7 @@ import {
                 </Button>
             </FormControl>
         </form>
+        </Center>
         </SimpleGrid>
         </Box>
       </ChakraProvider>
@@ -268,4 +275,5 @@ import {
     )
   }
   
+
 

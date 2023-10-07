@@ -9,6 +9,11 @@ import image5 from '../pics/Volunteer_Female_Flooring Repair.jpg'
 import house1 from '../pics/20201107_113446.jpg'
 import house2 from '../pics/20220621_125432.jpg'
 import house3 from '../pics/70790026.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import streak from '../pics/streak.png'
+import baby from '../pics/baby.png'
+import brush from '../pics/brush.png'
+import referral from '../pics/referral.png'
 
 import {
     Card,
@@ -145,6 +150,84 @@ function ProgressCard() {
             
         </Stat>)
 }
+function StreakCard(){
+    return (
+        <Stat>
+            
+                <Box>
+
+                <StatLabel>4 Month Streak</StatLabel>
+                    <CircularProgress value={75} size='100px' color="red.400">
+                        <CircularProgressLabel>
+                            <Image 
+                            src={streak}
+                            w="90%"
+                            paddingLeft={3}
+                            ></Image> 
+                        </CircularProgressLabel>
+                    </CircularProgress>
+                </Box>
+        </Stat>)    
+}
+function ReferralCard(){
+    return (
+        <Stat>
+            
+                <Box>
+
+                <StatLabel>Refer 5 friends</StatLabel>
+                    <CircularProgress value={0} size='100px' color="red.400">
+                        <CircularProgressLabel>
+                            <Image 
+                            src={referral}
+                            w="75%"
+                            paddingLeft={6}
+                            ></Image> 
+                        </CircularProgressLabel>
+                    </CircularProgress>
+                </Box>
+        </Stat>)    
+}
+function BabyCard(){
+    return (
+        <Stat>
+            
+                <Box>
+
+                <StatLabel>First Build</StatLabel>
+                    <CircularProgress value={100} size='100px' color="red.400">
+                        <CircularProgressLabel>
+                            <Image 
+                            src={baby}
+                            w="70%"
+                            h="110%"
+                            paddingLeft={8}
+                            ></Image> 
+                        </CircularProgressLabel>
+                    </CircularProgress>
+                </Box>
+        </Stat>)    
+}
+
+function BrushCard(){
+    return (
+        <Stat>
+            
+                <Box>
+                <StatLabel>Ten Paint Jobs</StatLabel>
+                    <CircularProgress value={30} size='100px' color="red.400">
+                        <CircularProgressLabel>
+                            <Image 
+                            src={brush}
+                            w="75%"
+                            h="140%"
+                            paddingLeft={8}
+                            ></Image> 
+                        </CircularProgressLabel>
+                    </CircularProgress>
+                </Box>
+        </Stat>)    
+}
 
 function VolunteeringJourney() {
     return (
@@ -156,12 +239,21 @@ function VolunteeringJourney() {
             padding={10}
             backgroundColor="green.50">
             <VolunteerHeader text="Volunteer Journey"></VolunteerHeader>
-            <Spacer height="80px"></Spacer>
+            <Spacer height="30px"></Spacer>
+            <SimpleGrid columns={4} spacing={2}>
+                <StreakCard />
+                <BabyCard />
+                <BrushCard />
+                <ReferralCard />
+            </SimpleGrid>
+            <Spacer height="20px"></Spacer>
+
             <SimpleGrid columns={3} spacing={2}>
                 <HoursCard />
                 <MoneyCard />
                 <ProgressCard />
             </SimpleGrid>
+            
         </Box>
 
     )
@@ -255,7 +347,6 @@ function GalleryGrid() {
     );
 
 }
-
 function HousesCard(props) {
     return (
         <Card maxW='400px' height='330px' border='solid 3px' borderColor='green'>
@@ -378,3 +469,4 @@ export default function Profile() {
 
     )
 }
+

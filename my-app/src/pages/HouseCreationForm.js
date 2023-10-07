@@ -6,15 +6,20 @@ import {
   Button,
   VStack,
   Select,
+  Box,
+  SimpleGrid,
+  Image,
 } from "@chakra-ui/react";
 import axios from "axios";
+import image1 from '../pics/image2.jpg'
+
 
 class HouseCreationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ownerName: "",
-      ownerEmail: "",
+      email: "",
+      password: "",
       street: "",
       city: "",
       zipCode: "",
@@ -56,14 +61,26 @@ class HouseCreationForm extends React.Component {
     return (
       <Flex>
         {/* TODO: Include the nav bar */}
-        <FormControl textAlign="center">
-          <VStack width="50%">
+        <Box
+            rounded={'lg'}
+            bg='green.50'
+        >
+      <SimpleGrid columns={2} spacingY={0} padding={0}>
+        <FormControl 
+          rounded={'lg'}
+          paddingRight={59}
+          paddingLeft={59}
+          paddingTop={30}
+          paddingBottom={30}
+          align='n center'textAlign="center">
+          <VStack width="80%">
             <Input
               id="ownerName"
               placeholder="Owner Name"
               name="ownerName"
               value={this.state.ownerName}
               onChange={this.onChange}
+              marginTop={2}
             />
             <Input
               id="ownerEmail"
@@ -71,6 +88,7 @@ class HouseCreationForm extends React.Component {
               name="ownerEmail"
               value={this.state.ownerEmail}
               onChange={this.onChange}
+              marginTop={2}
             />
             <Input
               id="street"
@@ -78,6 +96,7 @@ class HouseCreationForm extends React.Component {
               name="street"
               value={this.state.street}
               onChange={this.onChange}
+              marginTop={2}
             />
             <Input
               id="city"
@@ -85,6 +104,7 @@ class HouseCreationForm extends React.Component {
               name="city"
               value={this.state.city}
               onChange={this.onChange}
+              marginTop={2}
             />
             <Select
               id="state"
@@ -92,6 +112,7 @@ class HouseCreationForm extends React.Component {
               name="state"
               value={this.state.city}
               onChange={this.onChange}
+              marginTop={2}
             >
               <option>Illinois</option>
               <option>Ohio</option>
@@ -103,6 +124,7 @@ class HouseCreationForm extends React.Component {
               name="zipCode"
               value={this.state.zipCode}
               onChange={this.onChange}
+              marginTop={2}
             />
 
             <Input
@@ -111,6 +133,7 @@ class HouseCreationForm extends React.Component {
               name="language"
               value={this.state.language}
               onChange={this.onChange}
+              marginTop={2}
             />
 
             <Input
@@ -120,6 +143,7 @@ class HouseCreationForm extends React.Component {
               name="recievedOn"
               value={this.state.recievedOn}
               onChange={this.onChange}
+              marginTop={2}
             />
             <Input
               id="application"
@@ -127,12 +151,20 @@ class HouseCreationForm extends React.Component {
               name="application"
               value={this.state.application}
               onChange={this.onChange}
+              marginTop={2}
             />
-          </VStack>
+         
 
-          <Button onClick={this.handleSubmit}>Submit</Button>
+          <Button marginTop={2} onClick={this.handleSubmit}>Submit</Button>
+          </VStack>
         </FormControl>
+        <Image src={image1}
+            alt="Image Description"
+            style={{ opacity: 0.7 }} 
+        ></Image> 
         {/* TODO: Include the footer bar */}
+        </SimpleGrid>
+        </Box>
       </Flex>
     );
   }
