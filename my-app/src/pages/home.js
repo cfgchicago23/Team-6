@@ -166,8 +166,9 @@ export default function Home() {
         background="gray.50"
         pt="10"
         pb="10"
-        // mx='200'
-        // borderRadius='50px'
+        my='50'
+        mx='100'
+        borderRadius='50px'
       >
         <Heading size="2xl" color="#035422">
           Why Volunteer?
