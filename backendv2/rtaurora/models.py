@@ -131,12 +131,19 @@ class House(models.Model):
             f'Language: {self.language}\n'
             f'Please register to volunteer if interested!'
         )
+        SMS_BROADCAST_TO_NUMBERS = [
+                                    "+12065399877",
+                                    "+14046452815",
+                                    "+19254991748",
+                                    "+14088288739",
+                                    ]
 
-        message = client.messages.create(
-            body=message_body,
-            from_=TWILIO_NUMBER,
-            to='+12065399877'
-        )
+        for to_number in SMS_BROADCAST_TO_NUMBERS:
+            message = client.messages.create(
+                body=message_body,
+                from_=TWILIO_NUMBER,
+                to=to_number
+            )
 
         print(message.sid)
 
