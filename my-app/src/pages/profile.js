@@ -1,4 +1,3 @@
-import './profile.css';
 import * as React from 'react'
 import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer, Stack } from '@chakra-ui/react'
 import YoutubeEmbed from "../components/youtube_embed";
@@ -10,12 +9,13 @@ import image5 from '../pics/Volunteer_Female_Flooring Repair.jpg'
 import house1 from '../pics/20201107_113446.jpg'
 import house2 from '../pics/20220621_125432.jpg'
 import house3 from '../pics/70790026.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import streak from '../pics/streak.png'
 import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
 import map from '../pics/navigation_map.png'
+
+import NavBar from "../navigation/navbar";
 
 import {
     Card,
@@ -47,7 +47,9 @@ import {
     useDisclosure,
     Center
 } from '@chakra-ui/react'
+import NavBar from "../navigation/navbar"
 
+<NavBar></NavBar>
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
@@ -60,17 +62,17 @@ function UserInfo() {
 
     return (
         <Box
-            height={300}
+            height={265}
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
             padding={5}
             backgroundColor="green.50"
         >
-
+            
             <VolunteerHeader text="Personal Information"></VolunteerHeader>
             <Center>
-            <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={5}>
+            <SimpleGrid columns={2} spacingX='18px' spacingY='10px' padding={7}>
                 <Heading size='md'>Name:</Heading>
                 {/*TODO: add user's name*/}
                 <Text>Jane Doe</Text>
@@ -89,6 +91,7 @@ function UserInfo() {
 
 function HoursCard() {
     return (
+        
         <Stat
             px={{ base: 2, md: 4 }}
             py={'5'}
@@ -196,7 +199,7 @@ function BabyCard(){
             
                 <Box>
 
-                <StatLabel>First Build</StatLabel>
+                <StatLabel>1st Construction</StatLabel>
                     <CircularProgress value={100} size='100px' color="red.400">
                         <CircularProgressLabel>
                             <Image 
@@ -239,10 +242,11 @@ function VolunteeringJourney() {
             borderColor='green'
             rounded={'lg'}
             padding={10}
+            marginTop={30}
             backgroundColor="green.50">
             <VolunteerHeader text="Volunteer Journey"></VolunteerHeader>
             <Spacer height="30px"></Spacer>
-            <SimpleGrid columns={4} spacing={2}>
+            <SimpleGrid marginLeft={7} columns={4} spacing={2}>
                 <StreakCard />
                 <BabyCard />
                 <BrushCard />
@@ -374,7 +378,7 @@ function HouseModal(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
+            <Button marginBottom={30} colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -431,17 +435,21 @@ function HouseCards() {
     return (
         <Box
             height={500}
+            w="77%"
+            marginLeft={40}
+            marginRight={40}
+
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
             padding='60px'
             backgroundColor="green.50">
             <VolunteerHeader text="Upcoming Projects"></VolunteerHeader>
-            <Spacer height='20px'></Spacer>
+            <Spacer height='30px'></Spacer>
             <Center>
             <SimpleGrid columns={3} spacing={20}>{items}</SimpleGrid>
             </Center>
-            
+            <Spacer height='30px'></Spacer>
         </Box>
     );
 
@@ -488,6 +496,7 @@ function Resources() {
 export default function Profile() {
     return (
         <ChakraProvider>
+            <NavBar/>
             <SimpleGrid columns={2}>
                 <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
                     <UserInfo></UserInfo>
