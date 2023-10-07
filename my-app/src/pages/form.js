@@ -1,36 +1,140 @@
-// import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
-// import './App.css';
+import * as React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input,
+    Select,
+    RadioGroup,
+    Radio,
+    HStack,
+  } from '@chakra-ui/react'
 
-// // Get the form element
-// const contactForm = document.getElementById('contactForm');
 
-// // Add an event listener to handle form submission
-// contactForm.addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevent the default form submission behavior
+  export default function Form() {
+    return (
+      <ChakraProvider>
+        <FormControl isRequired>
+            <FormLabel>First Name</FormLabel>
+            <Input 
+                id="firstname"
+                type='firstname' 
+                placeholder='First name' 
+                value = {this.state.firstname}
+                onChange = {this.onChange}
+                />
 
-//     // Get form input values
-//     const name = document.getElementById('name').value;
-//     const email = document.getElementById('email').value;
-//     const message = document.getElementById('message').value;
+            <FormLabel>Last Name</FormLabel>
+            <Input 
+                type='lastname' 
+                id="lastname"
+                placeholder='Last name' 
+                value = {this.state.lastname}
+                onChange = {this.onChange}/>
 
-//     // Perform form validation (you can add more complex validation)
-//     if (!name || !email || !message) {
-//         alert('Please fill in all fields.');
-//         return;
-//     }
+            <FormLabel>Email address</FormLabel>
+            <Input type='email' />
+            <FormHelperText>We'll never share your email.</FormHelperText>
 
-//     // Send the form data to the server or perform any desired action
-//     // Here, you can use JavaScript fetch() or AJAX to send data to a server or perform other actions
+            <FormLabel>Phone Number</FormLabel>
+            <Input type='phone' />
 
-//     // For example, you can log the form data to the console
-//     console.log('Name:', name);
-//     console.log('Email:', email);
-//     console.log('Message:', message);
+            <FormLabel as='legend'>
+                Preferred Method of Contact
+            </FormLabel>
+            <RadioGroup defaultValue='Call'>
+                <HStack spacing='24px'>
+                <Radio value='Call'>Call</Radio>
+                <Radio value='Text'>Text</Radio>
+                <Radio value='Email'>Email</Radio>
+                </HStack>
+            </RadioGroup>
 
-//     // Optionally, reset the form after submission
-//     contactForm.reset();
-// });
+            <FormLabel>Street Address</FormLabel>
+            <Input type='phone' />
 
-export default function Form() {
-    
-}
+            <FormLabel>State</FormLabel>
+            <Input type='phone' />
+
+            <FormLabel>Zip Code</FormLabel>
+            <Input type='phone' />
+
+            <FormLabel>Date of Birth</FormLabel>
+            <Input type='phone' />
+
+            <FormLabel>Zip Code</FormLabel>
+            <Input type='phone' />
+
+            <FormLabel as='legend'>
+                Are you over 18?
+            </FormLabel>
+            <RadioGroup defaultValue='Yes'>
+                <HStack spacing='24px'>
+                    <Radio value='Yes'>Yes</Radio>
+                    <Radio value='No'>No</Radio>
+                </HStack>
+            </RadioGroup>
+
+            <FormLabel>T-Shirt Size</FormLabel>
+            <Select placeholder='Select size'>
+                <option>X-Small</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>X-Large</option>
+                <option>2X-Large</option>
+                <option>3x-Large</option>
+            </Select>
+
+            <FormLabel as='legend'>
+                Availability
+            </FormLabel>
+            <RadioGroup defaultValue='Yes'>
+                <HStack spacing='24px'>
+                    <Radio value='asneeded'>As Needed</Radio>
+                    <Radio value='weekends'>Weekends</Radio>
+                    <Radio value='weekdays'>Weekdays</Radio>
+                </HStack>
+            </RadioGroup>
+
+            <FormLabel>T-Shirt Size</FormLabel>
+            <Select placeholder='Select size'>
+                <option>General Volunteer</option>
+                <option>Carpentry</option>
+                <option>Window replacement</option>
+                <option>Drywall/Plaster work</option>
+                <option>Flooring</option>
+                <option>Painting</option>
+                <option>HVAC</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Landscaping</option>
+            </Select>
+
+            <FormLabel>Do you have any certifications or licenses you want to share with us?</FormLabel>
+            <Input type='phone' />
+        
+            <FormLabel>Other</FormLabel>
+            <Input type='phone' />
+        
+            <FormLabel as='legend'>
+                How did you hear about us?
+            </FormLabel>
+            <RadioGroup defaultValue='Yes'>
+                <HStack spacing='24px'>
+                    <Radio value='social'>Social media</Radio>
+                    <Radio value='wom'>Word of mouth</Radio>
+                    <Radio value='wom'>Organization</Radio>
+                    <Radio value='other'>Other</Radio>
+                </HStack>
+            </RadioGroup>
+        </FormControl>
+
+      </ChakraProvider>
+  
+    )
+  }
+  
+

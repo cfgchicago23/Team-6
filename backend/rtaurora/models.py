@@ -1,8 +1,18 @@
 from tkinter.tix import MAX
 from django.db import models
+import random
 
 MAX_LENGTH = 255
 
+
+RATING_CHOICES = (
+    ("na", "Choose Rating"),
+    ("1", "Very Negative"),
+    ("2", "Negative"),
+    ("3", "Neutral"),
+    ("4", "Positive"),
+    ("5", "Very Positive")
+)
 STATE_CHOICES = (
     ("na", "Choose State"),
     ("OH", "Ohio"),
@@ -71,13 +81,35 @@ class Volunteer(models.Model):
     role = models.CharField(max_length = 20, choices=EXPERTISE, default="general")
     other = models.TextField(blank=True)
     reference = models.TextField(blank=True)
+    hours = models.IntegerField(default=0)
 
 
     def __str__(self) -> str:
         return self.name
 
+class AdminUser(models.Model):
+    adminUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    adminPassword = models.CharField(max_length=MAX_LENGTH)
+    
+    def __str__(self) -> str:
+        return self.name
 
-class Organization(models.Model):
+class VolunteerUser(models.Model):
+    volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
+    volunteerPassword = models.CharField(max_length=MAX_LENGTH)
+    
+
+class House(models.Model):
+    house_id = models.CharField(max_length=6, default=random.randint(0,20))
+    owner_name = models.CharField(max_length=MAX_LENGTH)
+    owner_email = models.EmailField(max_length=MAX_LENGTH, blank=True)
+    owner_phone = models.CharField(max_length=MAX_LENGTH)
+    address = models.CharField(max_length=MAX_LENGTH)
+    language = models.CharField(max_length=MAX_LENGTH)
+    needed_repairs = models.CharField(max_length=MAX_LENGTH)
+
+
+class Organization (models.Model):
     name = models.CharField(max_length=MAX_LENGTH)
     street = models.TextField()
     state = models.CharField(max_length=2, choices=STATE_CHOICES, default="na")
@@ -87,19 +119,8 @@ class Organization(models.Model):
     mainContact = models.CharField(max_length=MAX_LENGTH)
     mainEmail = models.EmailField(max_length=MAX_LENGTH, blank=True)
 
-
-    
-class VolunteerUser(models.Model):
-    volunteerUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
-    volunteerPassword = models.CharField(max_length=MAX_LENGTH) # login for admin & login for username
-
-class AdminUser(models.Model):
-    adminUsername = models.CharField(max_length=MAX_LENGTH, unique=True)
-    adminPassword = models.CharField(max_length=MAX_LENGTH)
-    
-    def __str__(self):
-        return self.adminUsername
-
-    
-    
-    
+class FeedbackForm (models.Model):
+    rating = models.CharField(max_length=2, choices=RATING_CHOICES, default="na")
+    text = models.TextField(default="")
+    house = models.CharField(max_length=MAX_LENGTH, default="")
+    volunteer_name = models.CharField(max_length=MAX_LENGTH, default="")
