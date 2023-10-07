@@ -14,7 +14,7 @@ export default function Home() {
     React.useEffect(() => {
       const intervalId = setInterval(
         () => setIndex((index) => index + 1),
-        3000, // every 3 seconds
+        2000, // every 3 seconds
       );
       return () => clearTimeout(intervalId);
       }, []);
@@ -76,7 +76,7 @@ export default function Home() {
                   <Spacer />
                   <Box>
                       <Heading size='2xl' pl='10'>
-                          $10000
+                          $100000
                       </Heading>
                       <Heading size='2xl' pl='10' color='#035422'>Saved</Heading>
                   </Box>
@@ -90,15 +90,15 @@ export default function Home() {
               </Flex>
 
               <div className="slide-container">
-              <Slide>
-                {slideImages.map((slideImage, index)=> (
-                  <div key={index}>
-                    <div style={{ ...divStyle, 'backgroundImage': `url(${slideImage.url})` }}>
-                      <Image src={slideImage.url} alt=""></Image>
+                <Slide>
+                  {slideImages.map((slideImage, index)=> (
+                    <div key={index}>
+                      <div style={{ ...divStyle, 'backgroundImage': `url(${slideImage.url})` }}>
+                        <Image src={slideImage.url} alt=""></Image>
+                      </div>
                     </div>
-                  </div>
-                ))} 
-              </Slide>
+                  ))} 
+                </Slide>
             </div>
 
             <VStack

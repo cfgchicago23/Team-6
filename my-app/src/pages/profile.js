@@ -1,6 +1,7 @@
 import './profile.css';
 import * as React from 'react'
-import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer } from '@chakra-ui/react'
+import { CardBody, CardFooter, CardHeader, ChakraProvider, Heading, Spacer, Stack } from '@chakra-ui/react'
+import YoutubeEmbed from "../components/youtube_embed";
 import image1 from '../pics/20200830_134409.jpg'
 import image2 from '../pics/20210806_084254.jpg'
 import image3 from '../pics/20231004_103617.jpg'
@@ -14,6 +15,7 @@ import streak from '../pics/streak.png'
 import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
+import map from '../pics/navigation_map.png'
 
 import {
     Card,
@@ -445,6 +447,44 @@ function HouseCards() {
 
 }
 
+function Resources() {
+    return (
+        <Box
+            height={600}
+            border={'3px solid'}
+            borderColor='green'
+            rounded={'lg'}
+            padding='60px'
+            backgroundColor="green.50">
+            <VolunteerHeader text="Resources for the Job"></VolunteerHeader>
+            <Spacer height='20px'></Spacer>
+            <Stack spacing={300} direction='row' align='center' ml='5'>
+                    <Box>
+                        <Heading size='lg' ml='5' mb='3'>Navigation Map</Heading>
+                        <Image src={map} width={60} height={60} alt ='map' ml='40'/>
+                        <Text mt='3' ml='10'>
+                            See the map above for the locations of recycling dumpsters in Aurora!
+                        </Text>
+                    </Box>
+                    
+                    <Box>
+                        <Card minW='sm' border='2px' borderColor='green.400' mb='5' mt='5'>
+                            <CardHeader>
+                                <Heading size='md'>Installing Carpeting</Heading>
+                            </CardHeader>
+                            <CardBody>
+                                <YoutubeEmbed embedId="clLiPe9oHtw" />
+                            </CardBody>
+                        </Card>  
+                        <Button colorScheme='green' size='lg'>
+                            See more tutorials here!
+                        </Button>
+                    </Box>
+                </Stack>
+        </Box>
+    );
+}
+
 export default function Profile() {
     return (
         <ChakraProvider>
@@ -461,6 +501,8 @@ export default function Profile() {
             </SimpleGrid>
             <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
                 <HouseCards />
+                <Spacer height='20px'></Spacer>
+                <Resources />
                 <Spacer height='20px'></Spacer>
                 <FeedbackModal/>
                 <Spacer height='20px'></Spacer>

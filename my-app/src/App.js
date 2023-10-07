@@ -29,8 +29,10 @@ function App() {
       <NavBar></NavBar>
       <div className="App">
         {/* <LogIn></LogIn> */}
-        <Home></Home>
+        {/* <Home></Home> */}
+        {/* <Lessons></Lessons> */}
         {/* <Form></Form> */}
+        <Profile></Profile>
       </div>
     </ChakraProvider><Router>
 
