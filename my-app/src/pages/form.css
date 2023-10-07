@@ -1,0 +1,16 @@
+#profile {
+    max-width: 1000px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#image {
+    border-radius: 50%;
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+.toggle-buttons {
+    text-align: center;
+    margin-bottom: 10px;
+}

@@ -18,26 +18,29 @@ import {
       <ChakraProvider>
         <FormControl isRequired>
             <FormLabel>First Name</FormLabel>
-            <Input type='name' placeholder='First name' />
-        </FormControl>
+            <Input 
+                id="firstname"
+                type='firstname' 
+                placeholder='First name' 
+                value = {this.state.firstname}
+                onChange = {this.onChange}
+                />
 
-        <FormControl isRequired>
             <FormLabel>Last Name</FormLabel>
-            <Input type='name' />
-        </FormControl>
+            <Input 
+                type='lastname' 
+                id="lastname"
+                placeholder='Last name' 
+                value = {this.state.lastname}
+                onChange = {this.onChange}/>
 
-        <FormControl isRequired>
             <FormLabel>Email address</FormLabel>
             <Input type='email' />
             <FormHelperText>We'll never share your email.</FormHelperText>
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>Phone Number</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl as='fieldset'>
             <FormLabel as='legend'>
                 Preferred Method of Contact
             </FormLabel>
@@ -48,34 +51,22 @@ import {
                 <Radio value='Email'>Email</Radio>
                 </HStack>
             </RadioGroup>
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>Street Address</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>State</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>Zip Code</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>Date of Birth</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl isRequired> 
             <FormLabel>Zip Code</FormLabel>
             <Input type='phone' />
-        </FormControl>
 
-        <FormControl as='fieldset'>
             <FormLabel as='legend'>
                 Are you over 18?
             </FormLabel>
@@ -85,9 +76,6 @@ import {
                     <Radio value='No'>No</Radio>
                 </HStack>
             </RadioGroup>
-        </FormControl>
-
-        <FormControl>
             <FormLabel>T-Shirt Size</FormLabel>
             <Select placeholder='Select size'>
                 <option>X-Small</option>
@@ -97,11 +85,7 @@ import {
                 <option>X-Large</option>
                 <option>2X-Large</option>
                 <option>3x-Large</option>
-            </Select>
-        </FormControl>
-
-        <FormControl as='fieldset'>
-            <FormLabel as='legend'>
+            </Select>            <FormLabel as='legend'>
                 Availability
             </FormLabel>
             <RadioGroup defaultValue='Yes'>
@@ -111,9 +95,6 @@ import {
                     <Radio value='weekdays'>Weekdays</Radio>
                 </HStack>
             </RadioGroup>
-        </FormControl>
-
-        <FormControl>
             <FormLabel>T-Shirt Size</FormLabel>
             <Select placeholder='Select size'>
                 <option>General Volunteer</option>
@@ -126,21 +107,14 @@ import {
                 <option>Plumbing</option>
                 <option>Electrical</option>
                 <option>Landscaping</option>
-
             </Select>
-        </FormControl>
 
-        <FormControl> 
             <FormLabel>Do you have any certifications or licenses you want to share with us?</FormLabel>
             <Input type='phone' />
-        </FormControl>
         
-        <FormControl> 
             <FormLabel>Other</FormLabel>
             <Input type='phone' />
-        </FormControl>
         
-        <FormControl as='fieldset'>
             <FormLabel as='legend'>
                 How did you hear about us?
             </FormLabel>
