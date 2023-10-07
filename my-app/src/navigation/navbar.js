@@ -45,8 +45,12 @@ export default function NavBar() {
           </BreadcrumbItem>
         </Breadcrumb>
 
-        <Button ml='600px'colorScheme='green'>
-          Log In
+        <Button ml='480px'colorScheme='green' variant={'outline'}>
+          <Link to={'/admin'}>Admin Sign In</Link>
+        </Button>
+
+        <Button ml='3px'colorScheme='green'>
+          <Link to={'/feedback'}>Volunteer Sign In</Link>
         </Button>
       </div>
   );
