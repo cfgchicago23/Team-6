@@ -21,7 +21,7 @@ class Volunteer(models.Model):
         return self.name
     
 
-class Organization (models.Model):
+class Organization(models.Model):
     name = models.CharField(max_length=MAX_LENGTH)
     street = models.TextField()
     state = models.CharField(max_length=2, choices=STATE_CHOICES, default="na")
@@ -30,3 +30,12 @@ class Organization (models.Model):
 
     mainContact = models.CharField(max_length=MAX_LENGTH)
     mainEmail = models.EmailField(max_length=MAX_LENGTH, blank=True)
+
+    
+class volunteerUser(models.Model):
+    username = models.CharField(max_length=MAX_LENGTH)
+    password = models.CharField(max_length=MAX_LENGTH) # login for admin & login for username
+
+class adminUser(models.Model):
+    username = models.CharField(max_length=MAX_LENGTH)
+    password = models.CharField(max_length=MAX_LENGTH)
