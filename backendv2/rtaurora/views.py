@@ -66,12 +66,12 @@ class GetVolunteerView(APIView):
         entered_password = request.query_params.get("password")
 
         # Switch to using VolunteerUser model?
-        queryset = VolunteerUser.objects.filter(username=entered_username)
+        queryset = VolunteerUser.objects.filter(volunteerUsername=entered_username)
         if not queryset.exists():
-            return Response(status=status.HTTP_100_CONTINUE)
+            return Response(status=status.HTTP_200_OK)
         password = queryset.first().password
         if password != entered_password:
-            return Response(status=status.HTTP_100_CONTINUE)
+            return Response(status=status.HTTP_200_OK)
 
         # # MOVE TO SEPARATE VIEW
         # if username == 'heather':
