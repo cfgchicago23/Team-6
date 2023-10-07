@@ -28,7 +28,4 @@ router.register(r'volunteerUser', views.VolunteerUserView, 'volunteerUser')
 router.register(r'adminUser', views.AdminUserView, 'adminUser')
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
-]
+urlpatterns = [path("admin/", admin.site.urls), path("api/", include(router.urls))]

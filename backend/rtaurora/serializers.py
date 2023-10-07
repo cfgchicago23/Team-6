@@ -21,7 +21,18 @@ class VolunteerUserSerializer(serializers.ModelSerializer):
 class HouseSerializer(serializers.ModelSerializer):
     class Meta:
         model = House
-        fields = ('id','house_id', 'owner_name', 'owner_email', 'owner_phone', 'address', 'language', 'needed_repairs')
+        fields = (
+            "id",
+            "familyName",
+            "familyEmail",
+            "street",
+            "city",
+            "state",
+            "zipCode",
+            "language",
+            "recievedOn",
+            "application",
+        )
 
 class FeedbackFormSerializer(serializers.ModelSerializer):
     class Meta:
