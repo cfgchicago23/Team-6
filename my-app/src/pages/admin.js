@@ -80,7 +80,7 @@ export default function Home() {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                The Smith House Project is scheduled to occur on October 10th, 2023. It will occur at 1773 Eagle Drive in Aurora, IL. There are currently 30 registered volunteers out of the 40 spots available. 
               </AccordionPanel>
             </>
           )}
@@ -133,17 +133,6 @@ export default function Home() {
             </>
           )}
         </AccordionItem>
-
-
-
-
-
-        
-
-
-
-
-
 
 
 
