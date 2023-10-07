@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/home";
 import Admin from "./pages/admin";
-import NavBar from "./navigation/navbar";
 import Profile from "./pages/profile";
 import Form from "./pages/form";
 import HouseCreationForm from "./pages/HouseCreationForm";
