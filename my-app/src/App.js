@@ -28,13 +28,9 @@ function App() {
     <><ChakraProvider theme={theme}>
       <NavBar></NavBar>
       <div className="App">
-<<<<<<< HEAD
-        <Profile></Profile>
-=======
         <LogIn></LogIn>
         {/* <Home></Home> */}
         {/* <Form></Form> */}
->>>>>>> de60a24bea1309757818b8686bfe0bc6b82dec2e
       </div>
     </ChakraProvider><Router>
 
