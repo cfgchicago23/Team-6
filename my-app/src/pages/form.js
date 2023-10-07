@@ -18,7 +18,7 @@ import {
 
   export default function Form() {
       // Define state variables to store form input values
-    const [formData, setFormData] = this.useState({
+    const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
         email: '',
@@ -38,7 +38,7 @@ import {
     });
 
     // Function to handle form submission
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         // Access form input values from the formData state
         console.log(formData);
