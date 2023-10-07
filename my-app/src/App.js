@@ -28,8 +28,8 @@ function App() {
     <><ChakraProvider theme={theme}>
       <NavBar></NavBar>
       <div className="App">
-        <LogIn></LogIn>
-        {/* <Home></Home> */}
+        {/* <LogIn></LogIn> */}
+        <Home></Home>
         {/* <Form></Form> */}
       </div>
     </ChakraProvider><Router>
