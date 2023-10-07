@@ -21,7 +21,7 @@ from rtaurora import views
 
 router = routers.DefaultRouter()
 router.register(r'volunteer', views.VolunteerView, 'volunteer')
-
+router.register(r'organization', views.OrganizationView, 'organization')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
