@@ -78,6 +78,7 @@ class Volunteer(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
 class House(models.Model):
     familyName = models.CharField(max_length=MAX_LENGTH)
     familyEmail = models.EmailField(max_length=MAX_LENGTH, blank=True, null=True)
@@ -90,7 +91,7 @@ class House(models.Model):
     language = models.CharField(max_length=MAX_LENGTH, blank=True, null=True)
     recievedOn = models.DateField(blank=True, null=True)
     application = models.FileField(
-        upload_to="../HouseApplication", blank=True, null=True
+        upload_to="HouseApplications", blank=True, null=True
     )
 
 
