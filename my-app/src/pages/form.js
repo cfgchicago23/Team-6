@@ -17,6 +17,7 @@ import {
   import axios from 'axios';
   import './form.css';
   import image1 from '../pics/Group2.jpg'
+  import NavBar from "../navigation/navbar"
 
   export default function Form() {
       // Define state variables to store form input values
@@ -57,7 +58,9 @@ import {
     };
     
     return (
-      <ChakraProvider>
+        <ChakraProvider>
+            <NavBar></NavBar>
+
           <Box
             rounded={'lg'}
             bg='green.50'

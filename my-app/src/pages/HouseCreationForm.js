@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import image1 from '../pics/image2.jpg'
+import NavBar from "../navigation/navbar"
 
 
 class HouseCreationForm extends React.Component {
@@ -60,6 +61,7 @@ class HouseCreationForm extends React.Component {
   render() {
     return (
       <Flex>
+        <NavBar></NavBar>
         {/* TODO: Include the nav bar */}
         <Box
             rounded={'lg'}

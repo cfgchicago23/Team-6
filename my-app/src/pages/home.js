@@ -17,6 +17,8 @@ import image1 from "../pics/rebuilding_together.jpeg";
 import image2 from "../pics/truck_group.jpg";
 import image3 from "../pics/happy_building.jpg";
 import NavBar from "../navigation/navbar";
+import { Link } from 'react-router-dom';
+
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
@@ -77,8 +79,8 @@ export default function Home() {
           <Button colorScheme="green" size="lg">
             Donate
           </Button>
-          <Button colorScheme="whiteAlpha" size="lg">
-            Volunteer
+          <Button  colorScheme="whiteAlpha" size="lg">
+            <Link to={'/form'}>Volunteer</Link>
           </Button>
         </Stack>
       </Box>

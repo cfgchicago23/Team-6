@@ -8,11 +8,13 @@ import {
   CardHeader,
   VStack,
 } from "@chakra-ui/react";
+import NavBar from "../navigation/navbar"
 
 export default function Lessons() {
   return (
     <>
       <VStack>
+      <NavBar></NavBar>
         <Heading color="#035422" mt="10">
           Video Tutorials
         </Heading>
