@@ -131,6 +131,7 @@ class House(models.Model):
             f'Language: {self.language}\n'
             f'Please register to volunteer if interested!'
         )
+
         SMS_BROADCAST_TO_NUMBERS = [
                                     "+12065399877",
                                     "+14046452815",
@@ -138,6 +139,8 @@ class House(models.Model):
                                     "+14088288739",
                                     "+18476685973",
                                     "+15517771808",
+                                    "+16507399380",
+                                    "+15139107290"
                                     ]
 
         for to_number in SMS_BROADCAST_TO_NUMBERS:
