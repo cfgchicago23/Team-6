@@ -26,10 +26,10 @@ export default function Home() {
                 <Heading  fontSize='xl' color='#383836'>Together we repair homes, revitalize communities and rebuild lives.</Heading>
 
                 <Stack spacing={4} direction='row' align='center' pl='570' pt='10'>
-                    <Button colorScheme='black' size='lg' variant='outline'>
+                    <Button colorScheme='green' size='lg'>
                       Donate
                     </Button>
-                    <Button colorScheme='green' size='lg'>
+                    <Button colorScheme='whiteAlpha' size='lg'>
                       Volunteer
                     </Button>
                 </Stack>
