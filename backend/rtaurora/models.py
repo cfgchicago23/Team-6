@@ -121,6 +121,7 @@ class House(models.Model):
 class Organization(models.Model):
     name = models.CharField(max_length=MAX_LENGTH)
     street = models.TextField()
+    
     state = models.CharField(max_length=2, choices=STATE_CHOICES, default="na")
     city = models.TextField()
     zipCode = models.IntegerField()
