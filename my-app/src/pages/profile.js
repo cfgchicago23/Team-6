@@ -14,6 +14,7 @@ import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
 import map from '../pics/navigation_map.png'
+import { Link } from 'react-router-dom';
 
 import NavBar from "../navigation/navbar";
 
@@ -434,7 +435,6 @@ function HouseCards() {
             w="77%"
             marginLeft={40}
             marginRight={40}
-
             border={'3px solid'}
             borderColor='green'
             rounded={'lg'}
@@ -480,8 +480,8 @@ function Resources() {
                                 <YoutubeEmbed embedId="clLiPe9oHtw" />
                             </CardBody>
                         </Card>  
-                        <Button colorScheme='green' size='lg'>
-                            See more tutorials here!
+                        <Button colorScheme='green' size='lg' >
+                            <Link to={'/tutorials'}>See more tutorials here!</Link>
                         </Button>
                     </Box>
                 </Stack>

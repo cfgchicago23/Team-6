@@ -8,6 +8,14 @@ import {
   Button,
   VStack,
   Image,
+  ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModalFooter,
+    ModalOverlay,
+    useDisclosure,
+    Modal
 } from "@chakra-ui/react";
 import TextTransition, { presets } from "react-text-transition";
 import React from "react";
@@ -60,6 +68,8 @@ export default function Home() {
     },
   ];
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <>
       <NavBar />
@@ -76,7 +86,7 @@ export default function Home() {
         </Heading>
 
         <Stack spacing={4} direction="row" align="center" pl="570" pt="10">
-          <Button colorScheme="green" size="lg">
+          <Button colorScheme="green" size="lg" onClick={onOpen}>
             Donate
           </Button>
           <Button  colorScheme="whiteAlpha" size="lg">
@@ -84,6 +94,24 @@ export default function Home() {
           </Button>
         </Stack>
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose} size='lg'>
+        <ModalOverlay />
+        <ModalContent>
+            <ModalHeader color="green">Deliver $10 in repair for every $1 invested</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+                <Text>Can't Volunteer? That's okay! We need funding for all the resources for repairments. </Text>
+            </ModalBody>
+            <ModalFooter>
+                <Button colorScheme='green' mr={3} onClick={onClose} variant='outline'>
+                    Close
+                </Button>
+                <Button colorScheme='green' mr={3} onClick={onClose} >
+                <Link to={'https://www.paypal.com/donate?hosted_button_id=NTF9LK8XJTCGG'}>Go to Donation Page</Link>
+                </Button>
+            </ModalFooter>
+        </ModalContent>
+    </Modal>
 
       <Heading size="2xl" color="#035422" mt="30">
         Our Impact
