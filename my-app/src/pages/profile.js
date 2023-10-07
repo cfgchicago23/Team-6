@@ -12,8 +12,7 @@ import streak from '../pics/streak.png'
 import baby from '../pics/baby.png'
 import brush from '../pics/brush.png'
 import referral from '../pics/referral.png'
-
-import NavBar from "../navigation/navbar";
+import { Link } from 'react-router-dom';
 
 import {
     Card,
@@ -43,11 +42,11 @@ import {
     ModalFooter,
     ModalOverlay,
     useDisclosure,
-    Center
+    Center,
+    Stack
 } from '@chakra-ui/react'
-import NavBar from "../navigation/navbar"
+import NavBar from "../navigation/navbar";
 
-<NavBar></NavBar>
 function VolunteerHeader(prop) {
     return (
         <chakra.h1 color="green.500" textAlign={'center'} fontSize={'4xl'} fontWeight={'bold'}>
@@ -376,7 +375,7 @@ function HouseModal(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button marginBottom={30} colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
+            <Button display="block" marginBottom={30} colorScheme='green' onClick={onOpen}>Meet the Family!</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -386,7 +385,7 @@ function HouseModal(props) {
                         <Text>{props.info}</Text>
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='green' mr={3} onClick={onClose}>
+                        <Button display="block" colorScheme='green' mr={3} onClick={onClose}>
                             Close
                         </Button>
                     </ModalFooter>
@@ -457,6 +456,19 @@ export default function Profile() {
     return (
         <ChakraProvider>
             <NavBar/>
+            <Box
+                w="100%"
+                h="290px"
+                bgGradient="linear(to-r, gray.300, green.400, gray.300)"
+            >
+                <Heading align="center" size="3xl" pt="100px" color="white" pb="5">
+                    Thanks To You
+                </Heading>
+                <Heading align="center" fontSize="xl" color="#383836">
+                    Every one dollar RTA invests into building materials, it produces five dollars in critical home repairs for people
+                </Heading>
+
+            </Box>
             <SimpleGrid columns={2}>
                 <Box bg='white' w='100%' mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
                     <UserInfo></UserInfo>

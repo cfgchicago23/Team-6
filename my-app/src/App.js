@@ -42,6 +42,14 @@ const router = createBrowserRouter([
     path: "/form",
     element: <Form />,
   },
+  {
+    path: "/admin",
+    element: <Admin />,
+  },
+  {
+    path: "/HouseCreationForm",
+    element: <HouseCreationForm />,
+  },
 ]);
 
 function App() {

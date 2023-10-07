@@ -41,7 +41,7 @@ export default function NavBar() {
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/feedback">Feedback</BreadcrumbLink>
+            <BreadcrumbLink href="/admin">Admin</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
 
